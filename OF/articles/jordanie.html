@@ -1,0 +1,152 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="msapplication-config" content="none" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css" />
+<title>Portail captif Communauté Université Grenoble Alpes</title>
+<script type="text/javascript">
+function submitAction() {
+// Modifications
+	var user = document.forms[0].user.value.toLowerCase().replace(/ +/g,'').replace(/@$/,'');
+	if (user == '') {
+		document.forms[0].user.value = '';
+		alert ('Vous devez saisir un identifiant');
+		document.forms[0].user.focus();
+		return false;
+	}
+	document.forms[0].password.value = document.forms[0].password.value.replace(/ +/g,'');
+	if (document.forms[0].password.value == '') {
+		alert ('Vous devez fournir votre mot de passe');
+		document.forms[0].password.focus();
+		return false;
+	}
+	var dec = user.split('@', 2);
+	if (dec.length == 1) {
+		for (var i = 0; i < document.forms[0].elements.length; i++) {
+			if ((document.forms[0].elements[i].type == 'radio') && (document.forms[0].elements[i].checked)) { user = user + document.forms[0].elements[i].value; break; }
+		}
+	} else if (dec[0] == '') {
+		document.forms[0].user.value = '';
+		alert ('Vous devez saisir votre identifiant avant le @');
+		document.forms[0].user.focus();
+		return false;
+	} else if ((dec[1] != 'visiteurs') && (dec[1] != 'visiteuses')) {
+		user = dec[0] + '@cuga';
+	}
+	document.forms[0].username.value = user;
+// Fin modifications
+	var link = document.location.href;
+	var searchString = "redirect=";
+	var equalIndex = link.indexOf(searchString);
+	var redirectUrl = "";
+	var urlStr = "";
+	if (equalIndex > 0) {
+		equalIndex += searchString.length;
+		urlStr = link.substring(equalIndex);
+		if (urlStr.length > 0) {
+			redirectUrl += urlStr;
+			if (redirectUrl.length > 255) { redirectUrl = redirectUrl.substring(0,255); }
+			document.forms[0].redirect_url.value = redirectUrl;
+		}
+	}
+	document.forms[0].buttonClicked.value = 4;
+//	document.forms[0].submit();
+}
+function loadAction() {
+	var url = window.location.href;
+	var args = new Object();
+	var query = location.search.substring(1);
+	var pairs = query.split("&");
+	for (var i = 0; i < pairs.length; i++) {
+		var pos = pairs[i].indexOf('=');
+		if (pos == -1) { continue; }
+		var argname = pairs[i].substring(0,pos);
+		var value = pairs[i].substring(pos+1);
+		args[argname] = unescape(value);
+	}
+	document.forms[0].action = args.switch_url;
+	// This is the status code returned from webauth login action
+	// Any value of status code from 1 to 5 is error condition and user
+	// should be shown error as below or modify the message as it suits
+	// the customer
+	switch(args.statusCode) {
+		case 1:
+			alert ("Vous êtes déjà connecté.");
+			break;
+		case 2:
+			alert ("You are not configured to authenticate against web portal. No further action is required on your part.");
+			break;
+		case 3:
+			alert ("Erreur: ce compte ne peut être utilisé actuellement. Peut-être est-il déjà connecté?");
+			break;
+		case 4:
+			alert ("Erreur: compte inconnu, veuillez de nouveau saisir vos identifiants.");
+			break;
+		case 5:
+			alert ("Erreur: le mot de passe fourni pour ce compte est invalide, veuillez essayer de nouveau.");
+	}
+}
+</script>
+</head>
+
+<body onload="loadAction();">
+<noscript class="alertJavascript">JavaScript doit impérativement être activé</noscript>
+<div id="page">
+	<div id="entete"><h1><img src="portail.gif" alt="Portail captif Communauté Université Grenoble Alpes" /><span>Portail captif <span class="coulUGA">Communauté Université Grenoble Alpes</span></span></h1></div>
+	<div id="entete-deco"></div>
+	<div id="colonne1">
+		<h2>Bienvenue sur le portail captif de la<br>Communauté Université Grenoble Alpes !</h2>
+		<div class="warn">
+			<h3>Avertissement : sécurité de vos données</h3>
+			<p><span class="gras">Nous vous alertons sur le caractère <span class="rouge">NON sécurisé des transactions</span>, le contenu de tout échange de données sur le réseau via le portail captif peut être intercepté par un tiers malveillant.</span></p>
+			<p>Veillez à être vigilant(e) sur les informations que vous êtes amené(e) à consulter ou à saisir à travers un quelconque portail captif, surtout pour des informations de type professionnel, personnel, privé ou confidentiel (login, mot de passe, données bancaires...).</p>
+			<p>Il est de <span class="gras">votre responsabilité</span> de vous assurer que toutes ces données sont sécurisées par le <span class="gras">fournisseur du service</span> que vous désirez utiliser, à l'accès comme à la consultation.</p>
+		</div>
+		<h3>Utilisation de vos données personnelles</h3>
+		<p>Nous vous informons que <span class="gras">les traces de vos connexions/déconnexions sont enregistrées</span>, conservées durant 1 an conformément à la législation, et peuvent être remises aux autorités compétentes sur requête de leur part.</p>
+		<h3>Principaux services disponibles via le portail captif</h3>
+		<ul>
+			<li>consultation <span class="gras">web</span> (sécurisée ou non)</li>
+			<li>connexion au <span class="gras">VPN</span> de votre établissement</li>
+			<li><span class="gras">messagerie</span> (<span class="gras">sécurisée</span> uniquement)</li>
+			<li><span class="gras">visio-conférence</span></li>
+		</ul>
+	</div>
+	<div id="colonne2">
+		<h3 class="decal">La présente charte vous informe de vos et nos engagements et responsabilités :</h3>
+		<ul class="charte">
+			<li><a href="charte.html">Article 1 : Objet de cette charte</a></li>
+			<li><a href="charte.html#Article2">Article 2 : Avertissements relatifs à la sécurité</a></li>
+			<li><a href="charte.html#Article3">Article 3 : Vos engagements et responsabilité</a></li>
+			<li><a href="charte.html#Article4">Article 4 : Engagements et responsabilité de l'UGA</a></li>
+		</ul>
+		<div id="saisie">
+			<h3>Connexion au portail captif</h3>
+			<p><span class="gras">Vous reconnaissez avoir pris connaissance et <span class="rouge">accepté la charte ci-dessus</span> d'utilisation du portail captif.</span></p>
+			<p class="info">Les champs de saisie de l'identifiant et du mot de passe ci-dessous sont sécurisés.</p>
+			<form action="https://portail-captif.grenet.fr/login.html" method="post" onsubmit="return submitAction();">
+				<input name="buttonClicked" value="0" type="hidden" />
+				<input name="redirect_url" value="" type="hidden" />
+				<input name="err_flag" value="0" type="hidden" />
+				<input name="info_flag" value="0" type="hidden" />
+				<input name="info_msg" value="0" type="hidden" />	
+				<p><label class="gras" title="Vous etes">Vous êtes :</label></p>
+				<p class="profil gras"><input type="radio" name="etab" value="@cuga" title="Communauté Université Grenoble Alpes" checked="checked" /><label title="Communauté Université Grenoble Alpes"> Personnel ou étudiant(e)</label></p>
+				<p class="profil gras"><input type="radio" name="etab" value="@visiteurs" title="Visiteurs" /><label title="Visiteurs"> Visiteur</label></p>				
+				<p><label class="libelle2 item gras">Identifiant :</label><input name="user" maxlength="63" type="text" autocomplete="off" autofocus /><input name="username" type="hidden" /></p>
+				<p><label class="libelle2 item gras">Mot de passe :</label><input name="password" maxlength="63" type="password" autocomplete="off" /></p>			 
+				<p class="valider"><input name="Submit" value="J'accepte la charte ci-dessus" type="submit" /></p>
+			</form>
+		</div>
+		<p class="rouge gras" style="margin-bottom: 0;">N'oubliez pas :</p>
+		<ul>
+			<li>de vous <span class="rouge gras">déconnecter</span> pour terminer votre session en utilisant l'adresse <span class="charte gras">logout.grenet.fr</span>,</li>
+			<li>d'<span class="rouge gras">éteindre votre connexion wifi</span> (par mesure de sécurité, pour libérer les ressources réseau et préserver votre batterie).</li>
+		</ul>
+	</div>
+	<div id="pied"><img src="logo-simsu.png" alt="Service informatique mutualisé du site universitaire - Grenoble Savoie (SIMSU)" /></div>
+</div>
+</body>
+</html>
