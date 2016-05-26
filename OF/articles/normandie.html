@@ -6,39 +6,45 @@
                 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"Ug4AWFdACgsCVFdRAg=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);</script>
         <meta name="viewport" content="width=device-width">
-        <title>Saint-Lô prend le dessus sur Caen B</title>
+        <title>Fête de la chasse dans l’Orne: comment « draguer » avec des chiens</title>
         <!--[if IE]><![endif]-->
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <![endif]--><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="twitter:app:id:ipad" content="493304166" />
 <meta name="twitter:app:name:ipad" content="Ouest-France" />
-<meta name="twitter:app:url:ipad" content="ofv2://Article/3622439" />
-<meta name="twitter:app:url:iphone" content="ofv2://Article/3622439" />
+<meta name="twitter:app:url:ipad" content="ofv2://Article/526221" />
+<meta name="twitter:app:url:iphone" content="ofv2://Article/526221" />
 <meta name="twitter:app:id:googleplay" content="com.ouest.france" />
-<meta name="description" content="Amical. SM Caen B (CFA2) - Saint-Lô (CFA2) : 1-2. Entre deux formations bien affûtées, il fallait affirmer le travail collectif de part et d&#039;autre." />
+<meta name="description" content="La Fête de la chasse de Carrouges, dans l’Orne, est un rendez-vous d’envergure nationale, où des dizaines de milliers de visiteurs affluent durant trois" />
 <link rel="shortcut icon" href="http://www.ouest-france.fr/misc/favicon.ico" type="image/vnd.microsoft.icon" />
-<meta name="twitter:app:url:googleplay" content="ofv2://Article/3622439" />
+<meta name="twitter:app:url:googleplay" content="ofv2://Article/526221" />
 <meta name="twitter:app:id:iphone" content="493304166" />
 <meta name="twitter:app:name:googleplay" content="Ouest-France" />
 <meta name="twitter:app:country" content="FR" />
 <meta property="al:ios:app_name" content="Ouest-France" />
-<meta property="al:android:url" content="ofv2://Article/3622439" />
+<meta property="al:android:url" content="ofv2://Article/526221" />
 <meta property="al:ios:app_store_id" content="493304166" />
-<meta property="al:ios:url" content="ofv2://Article/3622439" />
-<link rel="canonical" href="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" />
+<meta property="al:ios:url" content="ofv2://Article/526221" />
+<link rel="canonical" href="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" />
 <meta property="al:android:app_name" content="Ouest-France" />
 <meta property="al:android:package" content="com.ouest.france" />
-<meta name="twitter:url" content="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" />
-<meta property="al:web:url" content="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" />
-<link rel="alternate" href="ios-app://493304166/ofv2/article/3622439" />
-<link rel="alternate" href="android-app://com.ouest.france/ofv2/article/3622439" />
+<meta name="twitter:url" content="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" />
+<meta property="al:web:url" content="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" />
+<link rel="alternate" href="ios-app://493304166/ofv2/article/526221" />
+<link rel="alternate" href="android-app://com.ouest.france/ofv2/article/526221" />
 <meta name="twitter:app:name:iphone" content="Ouest-France" />
                                 <meta property="og:site_name" content="Ouest-France.fr">
-                  <meta property="og:description" content="Amical. SM Caen B (CFA2) - Saint-Lô (CFA2) : 1-2. Entre deux formations bien affûtées, il fallait affirmer le travail collectif de part et d'autre.">
-                <meta property="og:title" content="Saint-Lô prend le dessus sur Caen B">
+                  <meta property="og:description" content="La Fête de la chasse de Carrouges, dans l’Orne, est un rendez-vous d’envergure nationale, où des dizaines de milliers de visiteurs affluent durant trois">
+                <meta property="og:title" content="Fête de la chasse dans l’Orne: comment « draguer » avec des chiens">
         <meta property="og:locale" content="fr_FR">
                   <meta property="og:type" content="article">
-                  <meta property="og:url" content="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439/">
+                      <meta property="og:image" content="http://www.ouest-france.fr/sites/default/files/styles/image-900x500/public/2013/09/27/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens.jpg?itok=N9bvLj8Z">
+            <meta property="og:image:height"
+                  content="500">
+            <meta property="og:image:width" content="900">
+            <meta property="og:image:type"
+                  content="image/jpeg">
+                          <meta property="og:url" content="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221/">
         <meta property="fb:page_id"
               content="270122530294">
         <meta property="fb:app_id"
@@ -47,19 +53,20 @@
         <meta name="twitter:site"
               content="@ouestfrance">
         <meta name="twitter:creator" content="@ouestfrance">
-        <meta name="twitter:title" content="Saint-Lô prend le dessus sur Caen B">
+        <meta name="twitter:title" content="Fête de la chasse dans l’Orne: comment « draguer » avec des chiens">
                   <meta name="twitter:description"
-                content="Amical. SM Caen B (CFA2) - Saint-Lô (CFA2) : 1-2. Entre deux formations bien affûtées, il fallait affirmer le travail collectif de part et d'autre.">                      <meta name="verification" content="434dd8e4f14a2006b4aa70e8fb27e860"/>
+                content="La Fête de la chasse de Carrouges, dans l’Orne, est un rendez-vous d’envergure nationale, où des dizaines de milliers de visiteurs affluent durant trois">                        <meta name="twitter:image" content="http://www.ouest-france.fr/sites/default/files/styles/image-900x500/public/2013/09/27/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens.jpg?itok=N9bvLj8Z">
+                <meta name="verification" content="434dd8e4f14a2006b4aa70e8fb27e860"/>
         <link type="text/css" rel="stylesheet" href="//www.ouest-france.fr/sites/default/files/advagg_css/css__dQoZopzLcxgr3NmQ6o0tJbQsLX-g5nEvN76xYQk8PwY__JHH054tqFDux2Xizc1nfyQW6EYaWUsReg2wX0xCN2ko__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.css" media="all" />
 <link type="text/css" rel="stylesheet" href="//www.ouest-france.fr/sites/default/files/advagg_css/css__N94oAkh7ULeUIHlaAwL0SSwk5pnJTq91S0CBc6W3z0Y__yqK_SgK-cvHEybyuAd7O4S0fvrAcfdeuQ9LQJOK6iqU__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.css" media="all" />
-<link type="text/css" rel="stylesheet" href="//www.ouest-france.fr/sites/default/files/advagg_css/css__TjeTDmKdgpyoOBiGw81Wbltxp2LdP7vCZ95gWZb-a54__A55j8za4pbhYoPP-67tFoux78vfGSvk5zjNCMEZDKFE__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="//www.ouest-france.fr/sites/default/files/advagg_css/css__TjeTDmKdgpyoOBiGw81Wbltxp2LdP7vCZ95gWZb-a54__AXtNzjGfqYVWgPKGz3y23whzsptnmQ2547q5JBBcu14__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.css" media="all" />
 <link type="text/css" rel="stylesheet" href="//www.ouest-france.fr/sites/default/files/advagg_css/css__YAWBMQ4l36ogENo-fllwQSCUQZ5G50jJ-JFxWkRFpxY__9GMcshzTFP6KxT6UUCMpLrYHC8JMTbH1XVxIVkT4bPo__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.css" media="all" />
 <script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__EtEv8D-v9WkS6Ol7F1HQ9jp8pA0sa39LetxCwqM6QWo__hp6VCJ28cf3uz4CDUTdw_r9Ief6oBFikpp2OsdnLydU__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
 <script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__t4yJTh1zELptLwEd_lGNdJt8BbUGaYE9Myo0zTFXOX4__0VZzDVExFtZVQRFiZ5XgAx_jrx0rX2kgswwHrkzeH48__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
 <script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__3UUhvLPh5jliNOHT_H8-m9fqkNNBzx9AIR4Gekv3TKA__4ck5WlM5gF-Nw2RQ82C6GK5cDSQLKx93u8eqbdLXS_E__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
 <script type="text/javascript">
 <!--//--><![CDATA[//><!--
-jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"front","theme_token":"6D1IUYw2brro3fi-dZFuv8x071qpNlUvoADTuZmQrjo","jquery_version":"1.7","css":{"misc\/ui\/jquery.ui.menu.css":1,"sites\/all\/modules\/contrib\/morecomments\/morecomments.css":1,"sites\/all\/libraries\/php-emoji\/lib\/emoji.css":1,"sites\/all\/themes\/front\/css\/front.css":1,"sites\/all\/themes\/front\/css\/specifics\/adblock.css":1,"sites\/all\/modules\/SIN\/actualite\/detail\/assets\/css\/pdf-display.css":1},"js":{"misc\/jquery.once.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.button.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.mouse.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.position.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.dialog.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.menu.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.autocomplete.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister\/js\/casregister_autologin.js":1,"sites\/all\/modules\/custom\/of_performances\/js\/of_performances.js":1,"sites\/all\/modules\/custom\/of_theme\/js\/of_theme.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister_profile\/js\/casregister_profile.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister_profile\/js\/casregister_maskinput.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_login.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_password.js":1,"misc\/progress.js":1,"sites\/all\/modules\/contrib\/ctools\/js\/modal.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_popup.js":1,"sites\/all\/modules\/contrib\/morecomments\/morecomments.js":1,"sites\/all\/modules\/custom\/of_mon_compte\/js\/unsubscribeToServices.js":1,"sites\/all\/modules\/custom\/of_mon_compte\/js\/of_mon_compte.js":1,"sites\/all\/modules\/SIN\/externe\/dfp\/js\/googletag.js":1,"sites\/all\/modules\/custom\/of_publicite\/scripts-pub.js":1,"sites\/all\/modules\/custom\/of_ma_commune\/js\/of_ma_commune.js":1,"sites\/all\/libraries\/base64\/base64.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/libraries\/moment\/moment.min.js":1,"sites\/all\/libraries\/pikaday\/moment.min.js":1,"sites\/all\/libraries\/pikaday\/pikaday.min.js":1,"sites\/all\/libraries\/pikaday\/pikaday.jquery.min.js":1,"sites\/all\/libraries\/jcarousel\/jquery.jcarousel.min.js":1,"sites\/all\/libraries\/jquery-placeholder-master\/jquery.placeholder.js":1,"sites\/all\/libraries\/unveil\/unveil.min.js":1,"sites\/all\/libraries\/cookie\/jquery.cookie.js":1,"sites\/all\/libraries\/autoellipsis\/jquery.autoellipsis.min.js":1,"sites\/all\/libraries\/social-likes\/social-likes.js":1,"sites\/all\/libraries\/social-likes\/codebird.js":1,"sites\/all\/libraries\/iframetracker\/jquery.iframetracker.js":1,"sites\/all\/themes\/base\/js\/of-dollar.js":1,"sites\/all\/themes\/base\/js\/of-log.js":1,"sites\/all\/themes\/base\/js\/base.js":1,"sites\/all\/themes\/base\/js\/of-modale.js":1,"sites\/all\/themes\/base\/js\/of-isloading.js":1,"sites\/all\/themes\/front\/js\/read-speaker.js":1,"sites\/all\/themes\/front\/js\/front.js":1,"sites\/all\/themes\/front\/js\/front-closure.js":1,"sites\/all\/themes\/front\/js\/gtm.js":1,"sites\/all\/themes\/front\/js\/subscribe-campaign.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/drupal.js":1,"public:\/\/languages\/fr_Dhe-iNDGuu-xHej1J4GPDEh6c6xSOOV4W93I3v5Vb_M.js":1,"sites\/all\/themes\/front\/js\/gtm-init.js":1}},"casregister":{"autologin":{"baseurl":"http:\/\/www.ouest-france.fr\/","ajaxUrl":"http:\/\/www.ouest-france.fr\/casregister\/autologin\/ajax","username":"","password":"","autologin":false,"errorUrl":"http:\/\/www.ouest-france.fr\/casregister\/autologin\/error","timeout":20000,"destination":"node\/3622439","theme_function":"casregister_popup_connexion"},"loginblock":{"ajaxUrl":"http:\/\/www.ouest-france.fr\/casregister\/loginblock\/ajax"}},"CToolsModal":{"loadingText":"En cours de chargement...","closeText":"Fermer la fen\u00eatre","closeImage":"\u003Cimg  alt=\u0022Fermer la fen\u00eatre\u0022 title=\u0022Fermer la fen\u00eatre\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/ctools\/images\/icon-close-window.png\u0022 \/\u003E","throbber":"\u003Cimg  alt=\u0022En cours de chargement\u0022 title=\u0022En cours de chargement...\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/ctools\/images\/throbber.gif\u0022 \/\u003E"},"modal-popup-small":{"modalSize":{"type":"fixed","width":300,"height":300},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"modal-popup-medium":{"modalSize":{"type":"fixed","width":550,"height":550},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"modal-popup-large":{"modalSize":{"type":"scale","width":0.8,"height":0.8},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"news_refresh_rate":"30","morecomments_pager":"\u003Ca href = \u0027javascript:;\u0027 class=\u0027morecomments-button node-3622439 page-1\u0027\u003EAfficher plus de r\u00e9actions\u003C\/a\u003E","of_mon_compte":{"sidNlGeneral":"844000"},"of-unsubscribe-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":505,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of-password-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":300,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of-login-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":505,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of_ma_commune":{"theme":"front","mobileUl":"#main-navigation ul.menu li .recherche-communes .ui-autocomplete","serverBasePath":""},"urlIsAjaxTrusted":{"\/normandie\/saint-lo-prend-le-dessus-sur-caen-b-3622439":true},"actualite_node":{"twitter_consumer_key":"s840XqQAf1Ap4eWZNSZPOiura","twitter_consumer_secret":"OM8nre60j0KBeOmAJzB7RKngzOhxRHyguRrqx3tSlpvMxxas9R","twitter_access_token":"35777570-KJq9GcYD2BQPvDEMDnU0IV3SZ0PvZBU8XeNu7dpff","twitter_acess_token_secret":"JMQauqW0VBY014l11WYvCXbXWKZyQOdaK8Ar5ftSceRbX"},"dfp_vars":{"ofb1":"ouestfrance","ofb2":"regions","ofb3":"normandie","ofb4":"","ofb5":"","oftp":"normandie","ofts":["normandie","manche"],"zc":"","ville":"","dpt":"","in":"","cp":"","pagetype":"article","publisherid":"49926454","usedfp":true,"responsive":true,"slotName":"\/49926454\/ouestfrance\u003Esite\/regions\/normandie\u003Earticle"},"server_name":"www.ouest-france.fr"});
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"front","theme_token":"mM0goeqENQo2v3fHTWm-QRIsBXfxg3fqzkq9EacavAo","jquery_version":"1.7","css":{"misc\/ui\/jquery.ui.menu.css":1,"sites\/all\/modules\/contrib\/morecomments\/morecomments.css":1,"sites\/all\/libraries\/php-emoji\/lib\/emoji.css":1,"sites\/all\/themes\/front\/css\/front.css":1,"sites\/all\/themes\/front\/css\/specifics\/adblock.css":1,"sites\/all\/modules\/SIN\/actualite\/detail\/assets\/css\/pdf-display.css":1},"js":{"misc\/jquery.once.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.button.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.mouse.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.position.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.dialog.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.menu.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.autocomplete.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister\/js\/casregister_autologin.js":1,"sites\/all\/modules\/custom\/of_performances\/js\/of_performances.js":1,"sites\/all\/modules\/custom\/of_theme\/js\/of_theme.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister_profile\/js\/casregister_profile.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister_profile\/js\/casregister_maskinput.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_login.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_password.js":1,"misc\/progress.js":1,"sites\/all\/modules\/contrib\/ctools\/js\/modal.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_popup.js":1,"sites\/all\/modules\/contrib\/morecomments\/morecomments.js":1,"sites\/all\/modules\/custom\/of_mon_compte\/js\/unsubscribeToServices.js":1,"sites\/all\/modules\/custom\/of_mon_compte\/js\/of_mon_compte.js":1,"sites\/all\/modules\/SIN\/externe\/dfp\/js\/googletag.js":1,"sites\/all\/modules\/custom\/of_publicite\/scripts-pub.js":1,"sites\/all\/modules\/custom\/of_ma_commune\/js\/of_ma_commune.js":1,"sites\/all\/libraries\/base64\/base64.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/libraries\/moment\/moment.min.js":1,"sites\/all\/libraries\/pikaday\/moment.min.js":1,"sites\/all\/libraries\/pikaday\/pikaday.min.js":1,"sites\/all\/libraries\/pikaday\/pikaday.jquery.min.js":1,"sites\/all\/libraries\/jcarousel\/jquery.jcarousel.min.js":1,"sites\/all\/libraries\/jquery-placeholder-master\/jquery.placeholder.js":1,"sites\/all\/libraries\/unveil\/unveil.min.js":1,"sites\/all\/libraries\/cookie\/jquery.cookie.js":1,"sites\/all\/libraries\/autoellipsis\/jquery.autoellipsis.min.js":1,"sites\/all\/libraries\/iframetracker\/jquery.iframetracker.js":1,"sites\/all\/themes\/base\/js\/of-dollar.js":1,"sites\/all\/themes\/base\/js\/of-log.js":1,"sites\/all\/themes\/base\/js\/base.js":1,"sites\/all\/themes\/base\/js\/of-modale.js":1,"sites\/all\/themes\/base\/js\/of-isloading.js":1,"sites\/all\/themes\/front\/js\/read-speaker.js":1,"sites\/all\/themes\/front\/js\/front.js":1,"sites\/all\/themes\/front\/js\/front-closure.js":1,"sites\/all\/themes\/front\/js\/gtm.js":1,"sites\/all\/themes\/front\/js\/subscribe-campaign.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/drupal.js":1,"public:\/\/languages\/fr_Dhe-iNDGuu-xHej1J4GPDEh6c6xSOOV4W93I3v5Vb_M.js":1,"sites\/all\/themes\/front\/js\/gtm-init.js":1}},"casregister":{"autologin":{"baseurl":"http:\/\/www.ouest-france.fr\/","ajaxUrl":"http:\/\/www.ouest-france.fr\/casregister\/autologin\/ajax","username":"","password":"","autologin":false,"errorUrl":"http:\/\/www.ouest-france.fr\/casregister\/autologin\/error","timeout":20000,"destination":"node\/526221","theme_function":"casregister_popup_connexion"},"loginblock":{"ajaxUrl":"http:\/\/www.ouest-france.fr\/casregister\/loginblock\/ajax"}},"CToolsModal":{"loadingText":"En cours de chargement...","closeText":"Fermer la fen\u00eatre","closeImage":"\u003Cimg  alt=\u0022Fermer la fen\u00eatre\u0022 title=\u0022Fermer la fen\u00eatre\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/ctools\/images\/icon-close-window.png\u0022 \/\u003E","throbber":"\u003Cimg  alt=\u0022En cours de chargement\u0022 title=\u0022En cours de chargement...\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/ctools\/images\/throbber.gif\u0022 \/\u003E"},"modal-popup-small":{"modalSize":{"type":"fixed","width":300,"height":300},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"modal-popup-medium":{"modalSize":{"type":"fixed","width":550,"height":550},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"modal-popup-large":{"modalSize":{"type":"scale","width":0.8,"height":0.8},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"news_refresh_rate":"30","morecomments_pager":"\u003Ca href = \u0027javascript:;\u0027 class=\u0027morecomments-button node-526221 page-1\u0027\u003EAfficher plus de r\u00e9actions\u003C\/a\u003E","of_mon_compte":{"sidNlGeneral":"844000"},"of-unsubscribe-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":505,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of-password-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":300,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of-login-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":505,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of_ma_commune":{"theme":"front","mobileUl":"#main-navigation ul.menu li .recherche-communes .ui-autocomplete","serverBasePath":""},"urlIsAjaxTrusted":{"\/normandie\/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221":true},"actualite_node":{"twitter_consumer_key":"s840XqQAf1Ap4eWZNSZPOiura","twitter_consumer_secret":"OM8nre60j0KBeOmAJzB7RKngzOhxRHyguRrqx3tSlpvMxxas9R","twitter_access_token":"35777570-KJq9GcYD2BQPvDEMDnU0IV3SZ0PvZBU8XeNu7dpff","twitter_acess_token_secret":"JMQauqW0VBY014l11WYvCXbXWKZyQOdaK8Ar5ftSceRbX"},"dfp_vars":{"ofb1":"ouestfrance","ofb2":"regions","ofb3":"normandie","ofb4":"","ofb5":"610101_alencon","oftp":"normandie","ofts":["normandie","alencon","carrouges"],"zc":"610101_alencon","ville":"","dpt":"","in":"","cp":"","pagetype":"article","publisherid":"49926454","usedfp":true,"responsive":true,"slotName":"\/49926454\/ouestfrance\u003Esite\/regions\/normandie\/610101_alencon\u003Earticle"},"server_name":"www.ouest-france.fr"});
 //--><!]]>
 </script>
                   <script type="text/javascript">
@@ -76,6 +83,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
             })();
             window._nli = window._nli || [];
             window._nli.push(['brand', 'Ro%2B8RdcyygZuE4lmYOSNUYa5RFq0zYtmmgaeJsvbUwDjgxeIw3Psqceh6od%2BH9mU5h2L71OAq3Hamg4k2mctHA%3D%3D']);
+            window._nli.push(['shareList', {'target':'nlibtn'}]);
           </script>
                 <!-- HTML5 element support for IE6-8 -->
         <!--[if lt IE 9]>
@@ -95,10 +103,10 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
                                 </head>
 
     <!--[if IE 8]>
-    <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-3622439 node-type-article lt-ie9" >
+    <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-526221 node-type-article lt-ie9" >
     <![endif]-->
     <!--[if gt IE 8]><!-->
-    <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-3622439 node-type-article" >
+    <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-526221 node-type-article" >
         <!--<![endif]-->
                 
   <div id="pub_interstitiel"></div>
@@ -123,16 +131,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
         <li class="nav-top__item nav-top__item-social"><a target="_blank" href="https://plus.google.com/+ouestfrance/posts" class="google-plus"><i title="Rejoignez Ouest-France sur Google+" class="icon-google-plus"></i></a></li>
 
                             
-<li class="nav-top__item nav-top__item-meteo item-dropdown "><a href="javascript:void(0);"><img src="/sites/all/modules/SIN/externe/meteo/pictos/WWNEBUL_P37.png" height="36" width="36" alt="Variable avec averses"><span>Météo</span></a>
-  <div class="subnav">     
-    <a class="meteo-city" href="/meteo/Rennes/35238" >
-      <div class="meteo-city__name">Rennes</div>
-      <img src="http://www.ouest-france.fr/sites/all/modules/SIN/externe/meteo/pictos/WWNEBUL_P37.png" alt="météo" />      <div class="meteo-city__degres">14&deg;C</div>
-      <div class="meteo-city__time">cet après-midi</div>  
-    </a>
-    <a class="meteo-all" href="/meteo/"><span>+</span> Toutes les prévisions</a>
-  </div>
-</li>
+    <li class="nav-top__item nav-top__item-meteo item-dropdown ">
+      <a href="/meteo/">
+        <img src="http://www.ouest-france.fr/sites/all/modules/SIN/externe/meteo/pictos/WWNEBUL_P1.png" height="36" width="36" alt="Toutes les prévisions météo">
+        <span>Météo</span>
+      </a>
+    </li>
         
         <li class="nav-top__item nav-top__item-promo"><a href="https://abonnement.ouest-france.fr/?utm_source=of&utm_medium=lien&utm_campaign=of-abo&utm_content=surmenu_boutonjaune" onclick="_gaq.push(['_trackEvent', 'OF - Nav Haute &ndash; Bouton Abo', 'Bouton 1', 'Abonnez vous a Ouest France']);" target="_blank">Abonnez-vous à Ouest-France</a></li>
 
@@ -184,12 +188,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
                     </div>
 
         <div class="header-search">
-            <form action="/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+            <form action="/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
   <div class="form-item form-type-textfield form-item-search-block-form">
   <label class="element-invisible" for="edit-search-block-form--2">Rechercher </label>
  <input title="Indiquer les termes à rechercher" placeholder="Rechercher sur Ouest-France.fr" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
 </div>
-<div class="form-actions form-wrapper" id="edit-actions"><button class="btn"><i class="icon-search"></i></button><input class="hide form-submit" type="submit" id="edit-submit" name="op" value="002" /></div><input type="hidden" name="form_build_id" value="form-NaJSdl8I22qetnzen6iKMZQJzoWZweWRvOLO5euNQwE" />
+<div class="form-actions form-wrapper" id="edit-actions"><button class="btn"><i class="icon-search"></i></button><input class="hide form-submit" type="submit" id="edit-submit" name="op" value="002" /></div><input type="hidden" name="form_build_id" value="form-r8_agb0L0WWua5LWWAPc-VpoMPFM3HYo-jGonR7-ByI" />
 <input type="hidden" name="form_id" value="search_block_form" />
 </div>
 </div></form>        </div>
@@ -297,6 +301,11 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     <li><a href="/insolite/">Insolite</a></li>
     <li><a class="ancre" href="/culture/people/">People</a></li>
     <li><a class="ancre" href="/sciences/">Sciences</a></li>
+    <li>
+        <ul class="col-nb">
+            <li><a href="/high-tech/">Multim&eacute;dia</a></li>
+        </ul>
+    </li>
 </ul>
 <ul class="col-nb" data-col-nb="7">
     <li><a href="/economie/agriculture/">Agriculture</a></li>
@@ -306,9 +315,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
                 <a href="/economie/agriculture/essais-agricoles/">Essais agricoles</a>
             </li>
             <li>
-                <a
-                    href="/economie/entreprises/lettre-agri-agro/">Lettre
-                    Agri-Agro</a>
+                <a href="/economie/entreprises/lettre-agri-agro/">Lettre Agri-Agro</a>
             </li>
         </ul>
     </li>
@@ -556,12 +563,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <ul class="last">
     <li>
         <ul class="col-nb" data-col-nb="2">
+            <li><a href="/sport/euro-2016/">Euro 2016</a></li>
             <li><a href="/sport/24-heures-du-mans/">24 Heures du Mans</a></li>
+            <li><a href="/tour-de-france/">Tour de France 2016</a></li>
+            <li><a href="/jeux-olympiques/">Jeux Olympiques</a></li>
             <li><a href="/vendee-globe/">Vend&eacute;e Globe</a></li>
             <li><a href="/spi/">Spi Ouest-France</a></li>
-            <li><a href="/sport/euro-2016/">Euro 2016</a></li>
-            <li><a href="/jeux-olympiques/">Jeux Olympiques</a></li>
-            <li><a href="/tour-de-france/">Tour de France 2016</a></li>
         </ul>
     </li>
 </ul>
@@ -584,9 +591,6 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     <li><a href="/medias/television/">T&eacute;l&eacute;vision</a></li>
     <li><a href="/culture/television/series/">Séries</a></li>
     <li><a href="http://tvmag.ouest-france.fr/" target="_blank">Programme Télé</a></li>
-</ul>
-<ul class="col-nb" data-col-nb="4">
-    <li><a href="/high-tech/">Multim&eacute;dia</a></li>
 </ul>
 <ul class="col-nb" data-col-nb="5">
     <li><a href="/culture/patrimoine/">Patrimoine</a></li>
@@ -720,22 +724,25 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
         <ul class="nav-moment">
       <li class="first">En ce moment</li>
                                   <li>
-                      <a href="http://www.ouest-france.fr/culture/cinema/festival-cannes/#from-en-ce-moment">Festival de Cannes                        </a>
-        </li>
-                        <li>
-                      <a href="http://www.ouest-france.fr/societe/faits-divers/violences-rennes/#from-en-ce-moment">Violences à Rennes                        </a>
-        </li>
-                        <li>
                       <a href="http://www.ouest-france.fr/economie/emploi/loi-travail/#from-en-ce-moment">Loi Travail                        </a>
         </li>
                         <li>
-                      <a href="http://www.ouest-france.fr/environnement/amenagement-du-territoire/notre-dame-des-landes/#from-en-ce-moment">NDDL                        </a>
+                      <a href="http://www.ouest-france.fr/economie/transports/penurie-de-carburant/#from-en-ce-moment">Pénurie de carburant                        </a>
+        </li>
+                        <li>
+                      <a href="http://www.ouest-france.fr/societe/faits-divers/crash/egyptair/#from-en-ce-moment">Crash du vol EgyptAir                        </a>
+        </li>
+                        <li>
+                      <a href="http://www.ouest-france.fr/roland-garros/#from-en-ce-moment">Roland Garros                        </a>
         </li>
                         <li>
                       <a href="http://www.ouest-france.fr/sport/euro-2016/#from-en-ce-moment">Euro 2016                        </a>
         </li>
                         <li>
-                      <a href="http://www.ouest-france.fr/economie/entreprises/stx/harmony-seas/?55_source=of&55_action=of&55_emplacement=bloc-evenement#from-en-ce-moment">Harmony of the Seas                        </a>
+                      <a href="http://www.ouest-france.fr/environnement/amenagement-du-territoire/notre-dame-des-landes/#from-en-ce-moment">NDDL                        </a>
+        </li>
+                        <li>
+                      <a href="http://www.ouest-france.fr/etats-unis/elections-americaines/#from-en-ce-moment">Primaires USA                        </a>
         </li>
                                                             </ul>
       <div id="wrapper">
@@ -790,24 +797,30 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <article class="article detail" id="article-detail" itemscope itemtype="http://schema.org/NewsArticle">
   <header>
   <h1 class="entry-title" itemprop="headline">
-    Saint-Lô prend le dessus sur Caen B  </h1>
+    Fête de la chasse dans l’Orne: comment « draguer » avec des chiens  </h1>
   <span class="metadata">
-          <span class="meta-cat">Normandie</span> - Modifi&eacute; le <time class="meta-time" itemprop="dateModified" datetime="2015-08-15T04:00:01+02:00">15/08/2015 à 04:00</time>
-       | Publi&eacute; le <time class="meta-time" itemprop="datePublished" datetime="2015-08-13T00:12:57+02:00">13/08/2015 à 00:12</time>
-      </span>
+          <span class="meta-cat">Normandie</span> - Modifi&eacute; le <time class="meta-time" itemprop="dateModified" datetime="2013-09-27T11:47:01+02:00">27/09/2013 à 11:47</time>
+        </span>
       <div id="readspeaker_button1" class="rs_skip rsbtn_of_skin rs_preserve"><a class="rsbtn_play" accesskey="L" title="Écouter cet article" href="http://app.eu.readspeaker.com/cgi-bin/rsent?customerid=6390&amp;lang=fr_fr&amp;readid=article-detail"><span class="rsbtn_left rspart"><span class="rsbtn_text"><span>écouter</span></span></span><span class="rsbtn_right rsplay rspart"></span></a></div>
-    <aside class="toolbar rs_skip">
-  <ul class="social-likes item-toolbar no-comments" data-position="top" data-url="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-url-courte="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-url-longue="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-share-text="Je vous recommande de lire : Saint-Lô prend le dessus sur Caen B">
-          <li class="facebook facebook" data-network="facebook"  title="Partager sur Facebook">Facebook</li>
-          <li class="twitter twitter" data-network="twitter" title="Partager sur Twitter">Twitter</li>
-          <li class="plusone plusone" data-network="google-plus" title="Partager sur Google+">Google+</li>
-          <li class="mail icon-toolbar-of"><a href="/mail?type=share&amp;id=3622439" title="Envoyer cet article par mail"><i class="icon-envelope"></i></a></li>
+          <div class="tag-video">
+      <div class="containerEpix" style="position: relative;"><div id="kwg_iLyROoaf8Fka" class="kwg_pr" name="kwg_iLyROoaf8Fka" ></div><div id="flash_epix_iLyROoaf8Fka" class="flash_epix" name="flash_epix" ><object id="iLyROoaf8Fka" type="application/x-shockwave-flash" data="http://s.kewego.com/swf/p3/epix.swf" width="400" height="300">  <param name="flashVars" value="language_code=fr&playerKey=a48069b3c527&skinKey=3daab3e056ae&sig=iLyROoaf8Fka&autostart=false&advertise=1&theme_color=005A87" />  <param name="movie" value="http://s.kewego.com/swf/p3/epix.swf" />  <param name="allowFullScreen" value="true" />  <param name="allowscriptaccess" value="always" />  <param name="wmode" value="Opaque" /></object></div></div>      </div>
+  <aside class="toolbar rs_skip">
+  <ul class="social-likes item-toolbar no-comments" data-position="top" data-url="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-url-courte="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-url-longue="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-share-text="Je vous recommande de lire : Fête de la chasse dans l’Orne: comment « draguer » avec des chiens">
+    <li class="facebook social-likes__widget" title="Partager sur Facebook" data-network="facebook"><a href="http://www.ouest-france.fr/node/526221" class="nlibtn" data-social="facebook"><span class="social-likes__button social-likes__button_facebook"><span class="social-likes__icon social-likes__icon_facebook"></span>
+Facebook</span>
+</a></li>
+<li class="twitter social-likes__widget" title="Partager sur Twitter" data-network="twitter"><a href="http://www.ouest-france.fr/node/526221" class="nlibtn" data-social="twitter"><span class="social-likes__button social-likes__button_twitter"><span class="social-likes__icon social-likes__icon_twitter"></span>
+Twitter</span>
+</a></li>
+<li class="plusone social-likes__widget" title="Partager sur Google+" data-network="google-plus"><a href="http://www.ouest-france.fr/node/526221" class="nlibtn" data-social="googleplus"><span class="social-likes__button social-likes__button_plusone"><span class="social-likes__icon social-likes__icon_plusone"></span>
+Google+</span>
+</a></li>
+      <li class="mail icon-toolbar-of"><a href="/mail?type=share&amp;id=526221" title="Envoyer cet article par mail"><i class="icon-envelope"></i></a></li>
               <li class="item-promo"><a href="http://journal.ouest-france.fr/?utm_source=of&utm_medium=lien&utm_campaign=of-journal&utm_content=page-article_boutonjaunehaut" target="_blank">Achetez votre journal numérique</a></li>
           </ul>
 </aside></header>  <div class="article-content p402_premium">
-          <h2 class="description" itemprop="description">Amical. SM Caen B (CFA2) - Saint-Lô (CFA2) : 1-2. Entre deux formations bien affûtées, il fallait affirmer le travail collectif de part et d&#039;autre.</h2>
         <p id="article-content" class="inside" itemprop="articleBody">
-      <P>Hier en fin d'après-midi, sur le terrain de Saint-Manvieu-Norrey (situé à l'ouest de Caen), l'opposition entre la réserve du SM Caen et Saint-Lô s'est soldée par une victoire des Manchois. Entre deux formations déjà bien affûtées physiquement, il fallait affirmer le travail collectif de part et d'autre. A l'évidence, la première période a souligné une volonté de réduire les espaces et de mettre la pression sur le vis-à-vis. Seuls les Saint-Lois ont pu s'en extraire pour détenir une bonne occasion via Zami capable de subtiliser le ballon devant Voisin avant de voir sa tentative détournée par un Deschateaux impeccable (18' et 44'). Juste avant la pause, ce même Zami bottait le corner pour Chauvel, étrangement, seul et son coup de tête croisé se terminait dans les filets (0-1)</P><P>Mieux disposé dès l'entame de la reprise, c'était au tour de Caen de posséder de bons atouts offensifs : une tête de Miquilan (en provenance de Dakar et à l'essai), une lourde frappe de Sambagué et une reprise de Porcheron. En fait, ce fut Miquilan (67') qui s'arrachait en 2, 3 temps pour logiquement égaliser. Peu à peu, Saint-Lô allait reprendre de l'allant. A l'issue d'un bon mouvement collectif et face à une défense inerte, N'Depo donnait le gain de la partie (77').</P><P><B>SM CAEN B (CFA2) - SAINT-LÔ (CFA2) :</B> 1-2 (0-1).</P><P>Arbitre : M. Menard.</P><P><B>BUTS. </B>Caen : Miquilan (67') ; Saint-Lô : Chauvel (45'   1'), N'Depo (77').</P>    </p>
+      <p>La Fête de la chasse de Carrouges, dans l’Orne, est un rendez-vous d’envergure nationale, où des dizaines de milliers de visiteurs affluent durant trois jours, dans un cadre champêtre de 32 ha. Concours de cors de chasse, initiation à la pêche, présentation d’équipages (groupes mêlant hommes et chiens) rythmeront la dernière journée, ce dimanche. </p><p>On y verra aussi des démonstrations de vénerie. Pascal Frédéric, responsable d’une meute, nous explique ainsi comment « draguer » avec des chiens. Pas de technique sensuelle derrière cette expression mais beaucoup de passion et de dressage pour proposer un spectacle qui s’inspire du déroulement d’une chasse à courre.</p><p><strong>Pratique. </strong>Dimanche 8 août, au château de Carrouges (au nord-ouest d'Alençon). Ouverture à 9 h. De nombreux spectacles encore toute la journée (démonstrations de chiens et de chevaux de chasse, agility…). 20 h 30 : grand spectacle nocturne « Vivre en Normandie ». 22 h 30 : Feu d’artifice pour clôturer le week-end.</p><p>Tarifs. Entrée : 9 €. Forfait 3 jours : 14 € (visite du château comprise). Gratuit pour les moins de 15 ans.</p>    </p>
     <div id="article-pub-content"><div id="pub_pave_article" class="pub"></div></div>
   </div><footer class="rs_skip article__footer">
       <div id="divVideoStepAdBottom" class="divVideoStep"></div>
@@ -842,7 +855,10 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
               <a href="/normandie/" rel="tag">Normandie</a>
             </li>
                         <li>
-              <a href="/normandie/manche/" rel="tag">Manche</a>
+              <a href="/normandie/alencon-61000/" rel="tag">Alençon</a>
+            </li>
+                        <li>
+              <a href="/normandie/carrouges-61320/" rel="tag">Carrouges</a>
             </li>
                   </ul>
     </div>
@@ -850,14 +866,14 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <aside class="rs_skip article-footer__bottom">
           <div id="bloc_outbrain_main">
         <div id="bloc_outbrain_top">
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-widget-id="AR_5" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-widget-id="AR_5" data-ob-template="OuestFrance" ></div>
         </div>
         <div id="bloc_outbrain_left">
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-widget-id="AR_6" data-ob-template="OuestFrance" ></div>
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-widget-id="AR_7" data-ob-template="OuestFrance" ></div>
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-widget-id="AR_8" data-ob-template="OuestFrance" ></div>
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-widget-id="AR_9" data-ob-template="OuestFrance" ></div>
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-widget-id="AR_10" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-widget-id="AR_6" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-widget-id="AR_7" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-widget-id="AR_8" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-widget-id="AR_9" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-widget-id="AR_10" data-ob-template="OuestFrance" ></div>
           <script type='text/javascript'>
   ;(function(refusedOnce){
   ;(function(){
@@ -887,7 +903,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
       };
   })();
 })(false);
-  </script>        </div><div id="bloc_outbrain_right"><div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-widget-id="AR_11" data-ob-template="OuestFrance" ></div></div></div>
+  </script>        </div><div id="bloc_outbrain_right"><div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-widget-id="AR_11" data-ob-template="OuestFrance" ></div></div></div>
           <div id="ultimedia_wrapper"></div>
 
 
@@ -961,10 +977,10 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   </aside>
   
 </article>
-<input type="hidden" id="nid" value="3622439" />
-<input type="hidden" id="titre" value="Saint-Lô prend le dessus sur Caen B" />
-  <input type="hidden" id="datePublication" value="1439417577" />
-  <input type="hidden" id="dateMAJ" value="1439604001" />
+<input type="hidden" id="nid" value="526221" />
+<input type="hidden" id="titre" value="Fête de la chasse dans l’Orne: comment « draguer » avec des chiens" />
+  <input type="hidden" id="datePublication" value="1281250877" />
+  <input type="hidden" id="dateMAJ" value="1380275221" />
     <input type="hidden" id="auteurs" value="" />
     <div id="pub_banniere_medium" class="pub"></div>  </div>
 
@@ -980,43 +996,43 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <div class="inside list">
     <ul>
               <li>
-          <time datetime="2016-05-22T07:29:42Z">
-            07h29          </time>
+          <time datetime="2016-05-25T13:04:54Z">
+            13h04          </time>
           <div class="title">
-            <a href='/normandie/alencon-61000/conde-sur-sarthe-deux-detenus-se-battent-avec-des-outils-de-jardinage-4242525'>
-              Condé-sur-Sarthe. Deux détenus se battent avec des outils de jardinage            </a>
+            <a href='/normandie/des-clandestins-decouverts-dans-un-camion-pres-de-rouen-4250698'>
+              Des clandestins découverts dans un camion, près de Rouen            </a>
           </div>
         </li>
               <li>
-          <time datetime="2016-05-21T19:59:09Z">
-            21/05          </time>
+          <time datetime="2016-05-25T12:56:05Z">
+            12h56          </time>
           <div class="title">
-            <a href='/normandie/caen-14000/nautisme-caen-plus-de-140-inscrits-la-course-de-paddle-dimanche-4242493'>
-              Nautisme à Caen. Plus de 140 inscrits à la course de paddle dimanche            </a>
+            <a href='/normandie/ouistreham-les-dockers-en-greve-48-heures-des-demain-matin-4250670'>
+              Ouistreham: les dockers en grève 48 heures dès demain matin            </a>
           </div>
         </li>
               <li>
-          <time datetime="2016-05-21T19:20:06Z">
-            21/05          </time>
+          <time datetime="2016-05-25T12:47:39Z">
+            12h47          </time>
           <div class="title">
-            <a href='/normandie/vire-michel-drucker-donne-son-nom-une-salle-de-spectacle-4242475'>
-              À Vire, Michel Drucker donne son nom à une salle de spectacle            </a>
+            <a href='/normandie/des-tombes-musulmanes-victimes-de-vandalisme-au-havre-4250693'>
+              Des tombes musulmanes victimes de vandalisme au Havre            </a>
           </div>
         </li>
               <li>
-          <time datetime="2016-05-21T18:51:17Z">
-            21/05          </time>
+          <time datetime="2016-05-25T12:21:13Z">
+            12h21          </time>
           <div class="title">
-            <a href='/normandie/saint-lo-50000/tour-de-france-en-videos-les-anecdotes-au-poil-de-la-soiree-memoire-4239982'>
-              Tour de France. En vidéos, les anecdotes au poil de la soirée Mémoire            </a>
+            <a href='/normandie/seine-maritime-16-millions-de-litres-de-carburant-livres-4250690'>
+              Seine-Maritime : 16 millions de litres de carburant livrés            </a>
           </div>
         </li>
               <li>
-          <time datetime="2016-05-21T18:49:28Z">
-            21/05          </time>
+          <time datetime="2016-05-25T11:20:03Z">
+            11h20          </time>
           <div class="title">
-            <a href='/normandie/grande-traversee-le-marie-fernand-premier-arrive-au-havre-video-4242473'>
-              Grande Traversée : le Marie-Fernand premier arrivé au Havre [VIDÉO]            </a>
+            <a href='/normandie/autoroute-13-il-ny-plus-de-gazole-4250661'>
+              Autoroute A 13 : il n'y a plus de gazole            </a>
           </div>
         </li>
           </ul>
@@ -1046,7 +1062,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
         <a href="/services/le-journal#services" class="lien-all" title="Tous les services" data-event="servicePlusServices"><span>+</span></a>
     </div>
 </section>
-  <div id="pub_brique" class="pub"></div>  <section class="sd-bloc sd-bloc-onglets bloc-les-plus">
+  <div id="pub_brique" class="pub"></div>  Ce service est temporairement désactivé. Veuillez nous excuser pour le désagrement occasionné.<!-- erreur infos widget : 500 -->  <section class="sd-bloc sd-bloc-onglets bloc-les-plus">
 
     <div class="tabbable">
 
@@ -1060,7 +1076,23 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
                 <ul class="list">
                                             <li   >
 
+                            <a href="/economie/emploi/loi-travail/penurie-le-point-sur-la-distribution-de-carburant-carte-interactive-4244784">Pénurie de carburant. Où faire le plein ? [carte interactive]</a>
+                                                          -
+                              <span class="meta-cat">
+                                                                      <a href="/economie/emploi/loi-travail/">Loi travail</a>
+                                                                </span>
+                                                    </li>
+                                                <li   >
+
                             <a href="/economie/emploi/loi-travail/loi-travail-avec-les-blocages-les-stocks-dessence-en-baisse-4237646">Loi Travail. Blocages : où trouver du carburant ? [carte interactive]</a>
+                                                          -
+                              <span class="meta-cat">
+                                                                      <a href="/economie/emploi/loi-travail/">Loi travail</a>
+                                                                </span>
+                                                    </li>
+                                                <li   >
+
+                            <a href="/economie/emploi/loi-travail/loi-travail-ou-trouver-du-carburant-ce-week-end-carte-interactive-4242322">Pénurie. Où trouver du carburant ce dimanche ? [carte interactive]</a>
                                                           -
                               <span class="meta-cat">
                                                                       <a href="/economie/emploi/loi-travail/">Loi travail</a>
@@ -1074,28 +1106,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
                                                                       <a href="/economie/emploi/loi-travail/">Loi travail</a>
                                                                 </span>
                                                     </li>
-                                                <li   >
-
-                            <a href="/monde/egypte/direct-vol-egyptair-disparu-15-francais-bord-4237605">Vol EgyptAir : la Grèce dément la découverte de l'épave</a>
-                                                          -
-                              <span class="meta-cat">
-                                                                      <a href="/monde/egypte/">Egypte</a>
-                                                                </span>
-                                                    </li>
-                                                <li   >
-
-                            <a href="/bretagne/rennes-35000/rennes-tentative-de-sabotage-du-metro-ce-matin-19-arrestations-4237625">Rennes. Tentative de sabotage du métro ce matin: 19 arrestations</a>
-                                                          -
-                              <span class="meta-cat">
-                                                                      <a href="/bretagne/rennes-35000/">Rennes</a>
-                                                                </span>
-                                                    </li>
                                                 <li class="last"  >
 
-                            <a href="/economie/emploi/loi-travail/loi-travail-ou-trouver-du-carburant-ce-week-end-carte-interactive-4242322">Pénurie. Où trouver du carburant ce week-end ? [carte interactive]</a>
+                            <a href="/economie/transports/penurie-de-carburant/penurie-de-carburant-ou-faire-le-plein-ce-mardi-carte-interactive-4248163">Pénurie de carburant. Où faire le plein ? [carte interactive]</a>
                                                           -
                               <span class="meta-cat">
-                                                                      <a href="/economie/emploi/loi-travail/">Loi travail</a>
+                                                                      <a href="/economie/transports/penurie-de-carburant/">Pénurie de carburant</a>
                                                                 </span>
                                                     </li>
                                         </ul>
@@ -1104,17 +1120,24 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
             <div id="articles-plus-commentes" class="tab-pane fade">
                 <ul class="list">
                                             <li   >
-                            <a href="/economie/emploi/loi-travail/direct-loi-travail-blocages-caen-saint-nazaire-rennes-le-mans-lorient-4233064">Direct. Loi Travail. Paris, Nantes, Rennes : retour au calme</a>
+                            <a href="/economie/emploi/loi-travail/ah-la-france-debrouillarde-qui-se-rue-sur-les-pompes-4244600">Ah ! La France débrouillarde... qui se rue sur les pompes</a>
                                                           <span class="meta-cat">
                                   
                                     Loi travail
                                                                 </span>
                                                     </li>
                                                 <li   >
-                            <a href="/societe/faits-divers/violences-rennes/video-nathalie-appere-plus-question-que-rennes-subisse-ces-violences-4232408">VIDEO. Nathalie Appéré: "Plus question que Rennes subisse ces violences"</a>
+                            <a href="/economie/emploi/loi-travail/loi-travail-ou-trouver-du-carburant-ce-week-end-carte-interactive-4242322">Pénurie. Où trouver du carburant ce dimanche ? [carte interactive]</a>
                                                           <span class="meta-cat">
                                   
-                                    Violences à Rennes
+                                    Loi travail
+                                                                </span>
+                                                    </li>
+                                                <li   >
+                            <a href="/politique/francois-hollande/raffineries-bloquees-hollande-denonce-la-strategie-dune-minorite-4248111">Raffineries bloquées. Hollande dénonce la "stratégie d'une minorité"</a>
+                                                          <span class="meta-cat">
+                                  
+                                    François Hollande
                                                                 </span>
                                                     </li>
                                                 <li   >
@@ -1124,18 +1147,11 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
                                     Loi travail
                                                                 </span>
                                                     </li>
-                                                <li   >
+                                                <li class="last"  >
                             <a href="/economie/emploi/loi-travail/loi-travail-ou-trouver-du-carburant-ce-vendredi-carte-interactive-4239798">Loi Travail. Où trouver du carburant ? [carte interactive]</a>
                                                           <span class="meta-cat">
                                   
                                     Loi travail
-                                                                </span>
-                                                    </li>
-                                                <li class="last"  >
-                            <a href="/monde/migrants/les-refugies-rapportent-plus-que-ce-quils-coutent-4237787">Les réfugiés rapportent plus que ce qu’ils coûtent</a>
-                                                          <span class="meta-cat">
-                                  
-                                    Migrants 
                                                                 </span>
                                                     </li>
                                         </ul>
@@ -1363,28 +1379,28 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 	<div id="OFI_content_Ann">
 
-		    	        <a href="https://www.ouestfrance-immo.com/immobilier/vente/maison/plabennec-29-29160/10787727.htm?utm_source=ouest-france.fr&utm_medium=widgetl&utm_campaign=autopromo" title="" class="blocAnnOFI" target="_blank">
+		    	        <a href="https://www.ouestfrance-immo.com/immobilier/vente/maison/saint-ouen-des-toits-53-53243/10796841.htm?utm_source=ouest-france.fr&utm_medium=widgetl&utm_campaign=autopromo" title="" class="blocAnnOFI" target="_blank">
 	            <div class="blocPhotoOFI">
-	                <img src="https://www.ouestfrance-immo.com/photo-vente-maison-plabennec-29/207/maison-a-vendre-plabennec-10787727_1_bbc96fd97a047f5ceec79f675fa42f75b0c0681e_px_90_.jpg"
+	                <img src="https://www.ouestfrance-immo.com/photo-vente-maison-saint-ouen-des-toits-53/207/maison-a-vendre-saint-ouen-des-toits-10796841_1_88bff9a1ab739cbe3ae5d2589a9d6390876b6330_px_90_.jpg"
 	                	width="90"
 	                	 border="0" alt="" />
-	                <span>9 photos</span>
+	                <span>10 photos</span>
 	            </div>
 	            <strong>
 	            Vente maison	            </strong>
-	            <span>Plabennec 29</span>
-	            <em>359 450&nbsp;€</em>	        </a>
-	    	        <a href="https://www.ouestfrance-immo.com/immobilier/vente/maison/la-fleche-72-72154/10787726.htm?utm_source=ouest-france.fr&utm_medium=widgetl&utm_campaign=autopromo" title="" class="blocAnnOFI" target="_blank">
+	            <span>Saint-Ouën-des-Toits 53</span>
+	            <em>145 618&nbsp;€</em>	        </a>
+	    	        <a href="https://www.ouestfrance-immo.com/immobilier/vente/maison/reze-44-44143/10796834.htm?utm_source=ouest-france.fr&utm_medium=widgetl&utm_campaign=autopromo" title="" class="blocAnnOFI" target="_blank">
 	            <div class="blocPhotoOFI">
-	                <img src="https://www.ouestfrance-immo.com/photo-vente-maison-la-fleche-72/207/maison-a-vendre-la-fleche-10787726_1_20b8591c9e6924588e9dd4cd4259be45dd896cd4_px_90_.jpg"
+	                <img src="https://www.ouestfrance-immo.com/photo-vente-maison-reze-44/207/maison-a-vendre-reze-10796834_1_357279755dae76ffca0299b43ecd9cfee4f187f3_px_90_.jpg"
 	                	width="90"
 	                	 border="0" alt="" />
-	                <span>17 photos</span>
+	                <span>5 photos</span>
 	            </div>
 	            <strong>
 	            Vente maison	            </strong>
-	            <span>La Flèche 72</span>
-	            <em>344 000&nbsp;€</em>	        </a>
+	            <span>Rezé 44</span>
+	            <em>209 000&nbsp;€</em>	        </a>
 	    	
 	<a href="https://www.ouestfrance-immo.com?utm_source=ouest-france.fr&utm_medium=widgetl&utm_campaign=autopromo" id="OFI_plus_Ann" target="_blank">
 			Retrouvez toutes nos offres immobili&egrave;res
@@ -1392,7 +1408,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 
 	</div>
 </div>  </section>
-  <div id="pub_pave3" class="pub"></div>  <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/saint-lo-prend-le-dessus-sur-caen-b-3622439" data-widget-id="SB_2" data-ob-template="OuestFrance" ></div><script type='text/javascript'>
+  <div id="pub_pave3" class="pub"></div>  <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/fete-de-la-chasse-dans-lorne-comment-draguer-avec-des-chiens-526221" data-widget-id="SB_2" data-ob-template="OuestFrance" ></div><script type='text/javascript'>
   ;(function(refusedOnce){
   ;(function(){
       var self = arguments.callee;
@@ -1428,110 +1444,110 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
               <div class="row">
           <div id="content-bottom">
               <div class="region region-content-bottom">
-      <div class="block-same-subject">
-  <div class="block-same-subject__title">Les Tops articles sur : Normandie</div>
-  <div class="row grid_2-3_1-3">
-    <div>
-      <article class="block-same-subject__focus add-icon">
-        <a href="/normandie/rouen-le-depot-petrolier-evacue-par-les-forces-de-lordre-4240090">
-          <figure class="photo"><img itemprop="image"  width="640" height="360" alt="Ce déblocage &quot;devra permettre de réapprovisionner les stations de Seine-Maritime&quot;." src="http://www.ouest-france.fr/sites/default/files/styles/image-640x360/public/2016/05/20/rouen-le-depot-petrolier-evacue-par-les-forces-de-lordre.jpg?itok=VYtXef9h"/>
-<figcaption>
-Ce déblocage "devra permettre de réapprovisionner les stations de Seine-Maritime".&nbsp;|&nbsp;Photo d'illustration/Franck Dubray</figcaption>
-</figure>          <p class="block-same-subject__focus-title">Rouen. Le dépôt pétrolier évacué par les forces de l'ordre</p>
-        </a>
-        <p class="block-same-subject__focus-description">La préfète de région Nicole Klein a demandé aux forces de l'ordre de débloquer le dépôt de carburant Rubis, situé à grand-Quevilly.</p>
-      </article>
-    </div>
-    <div>
-              <article class="block-same-subject__article">
-          <p class="block-same-subject__article-title"><a href="/normandie/le-havre-tous-les-blocages-leves-16-h-ce-vendredi-20-mai-4239970">Le Havre : tous les blocages levés, raffinerie Total à l'arrêt</a></p>
-          <p class="block-same-subject__article-description">Depuis mardi 17 mai, les opposants à la loi Travail avaient mis en place quatre points de blocage dans la zone industrielle du Havre. Ils sont levés depuis 16 h.</p>
-        </article>
-              <article class="block-same-subject__article">
-          <p class="block-same-subject__article-title"><a href="/normandie/une-famille-de-syriens-se-reconstruit-rouen-4239822">Une famille de Syriens se reconstruit à Rouen</a></p>
-          <p class="block-same-subject__article-description">Une centaine de familles syriennes ont trouvé refuge à Rouen, comme celle d’Ammar, qui raconte son périple depuis Homs, en Syrie, avec sa femme et ses quatre enfants.</p>
-        </article>
-              <article class="block-same-subject__article">
-          <p class="block-same-subject__article-title"><a href="/normandie/normandie-lnpn-quand-lile-de-france-rebat-les-cartes-4240178">Normandie. LNPN : quand l’Île-de-France rebat les cartes</a></p>
-          <p class="block-same-subject__article-description">Le nouveau conseil régional d’Île-de-France pense à un nouveau tracé pour la Ligne nouvelle Paris-Normandie. Depuis Roissy et sur la rive droite de la Seine.</p>
-        </article>
-          </div>
-  </div>
-</div>  <section class="essential-news add-icon">
+      <section class="essential-news add-icon">
   <div class="essential-news__rub">L'essentiel de l'actualité</div>
   <div class="row grid_1-3">
           <div>
                     <article>
-              <a href="/economie/emploi/loi-travail/une-station-sur-cinq-en-rupture-de-carburants-de-louest-4244528">           
+              <a href="/sciences/espagne-decouverte-de-70-peintures-rupestres-datant-de-12-500-ans-4250691">           
                                 <div class="photo  ">
-                  <img  width="310" height="190" alt="Une station essence Intermarché près de Rennes à Chantepie prise d&#039;assaut par les automobilistes samedi matin alors qu&#039;elle vient juste d&#039;être réapprovisionnée en carburant." title="Photo : Marc Ollivier / Ouest-France" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/22/une-station-sur-cinq-en-rupture-de-carburants-de-louest.jpg?itok=oETsIvCY" />                </div>
-                <p>Une station sur cinq en rupture de carburants de l'Ouest</p>
+                  <img  width="310" height="190" alt="Des archéologues ont découvert un important ensemble de peintures rupestres ayant plus de 12.000 ans au Pays basque espagnol (nord)." title="Photo : AFP" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/25/espagne-decouverte-de-70-peintures-rupestres-datant-de-12-500-ans.jpg?itok=34d7JG_S" />                </div>
+                <p>Espagne. Découverte de 70 peintures rupestres datant de 12 500 ans</p>
               </a>
             </article>
             <ul>
                             <li>
                 <p>
-                  <a href="/economie/aeronautique/lavion-solaire-solar-impulse-2-atterri-dans-lohio-4244521">
-                    L'avion solaire Solar Impulse 2 a atterri dans l'Ohio                  </a>
+                  <a href="/sante/des-malades-mentaux-attaches-ou-isoles-un-rapport-pointe-des-abus-4250682">
+                    Malades mentaux attachés ou isolés. Un rapport pointe des abus                  </a>
                 </p>
               </li>
                             <li>
                 <p>
-                  <a href="/culture/cinema/festival-cannes/un-film-finlandais-prix-un-certain-regard-cannes-4242526">
-                    Un film finlandais prix Un Certain Regard à Cannes                  </a>
+                  <a href="/monde/afghanistan/qui-est-le-mollah-haibatullah-nouveau-chef-des-talibans-afghans-4250677">
+                    Qui est le mollah Haibatullah, nouveau chef des talibans afghans ?                  </a>
                 </p>
               </li>
                       </ul>
       </div>
             <div>
                     <article>
-              <a href="/economie/aeronautique/egyptair-les-recherches-continuent-ce-dimanche-en-mediterranee-4244525">           
+              <a href="/sciences/animaux/video-ain-l214-denonce-des-maltraitances-dans-un-elevage-de-poules-4250666">           
                                 <div class="photo  ">
-                  <img  width="310" height="190" alt="Les recherches se poursuivent, ce dimanche, pour retrouver l&#039;épave de l&#039;Airbus d&#039;EgyptAir disparu en Méditerranée." title="PHOTO : HELEN RIMMER / BRITISH MINISTRY OF DEFENCE / EPA" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/22/egyptair-les-recherches-continuent-ce-dimanche-en-mediterranee.jpg?itok=NEC9GN1y" />                </div>
-                <p>EgyptAir : les recherches continuent ce dimanche en Méditerranée</p>
+                  <img  width="310" height="190" alt="Un élevage de 200 000 poules au cœur d&#039;une nouvelle affaire alimentaire." title="Photo : AFP" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/25/video-ain-l214-denonce-des-maltraitances-dans-un-elevage-de-poules.jpg?itok=HGnSYSqY" />                </div>
+                <p>VIDEO. Cadavres, poux... Un élevage de 20 000 poules dans la tourmente</p>
               </a>
             </article>
             <ul>
                             <li>
                 <p>
-                  <a href="/monde/afghanistan/le-chef-des-talibans-afghans-probablement-tue-par-un-drone-americain-4242544">
-                    Le chef des talibans afghans probablement tué par un drone américain                  </a>
+                  <a href="/economie/emploi/loi-travail/loi-travail-crispations-des-elus-et-des-syndicats-4250614">
+                    Loi Travail. Crispations des élus et des syndicats                  </a>
                 </p>
               </li>
                             <li>
                 <p>
-                  <a href="/normandie/alencon-61000/conde-sur-sarthe-deux-detenus-se-battent-avec-des-outils-de-jardinage-4242525">
-                    Condé-sur-Sarthe. Deux détenus se battent avec des outils de jardinage                  </a>
+                  <a href="/economie/emploi/loi-travail/direct-loi-travail-et-penurie-les-stocks-strategiques-mis-contribution-4250633">
+                    Direct. Loi Travail et pénurie. La France puise dans ses réserves                  </a>
                 </p>
               </li>
                       </ul>
       </div>
             <div>
                     <article>
-              <a href="/societe/justice/rennes-limprimerie-de-billets-echappe-au-casse-du-siecle-4242455">           
+              <a href="/monde/etats-unis/etats-unis-peine-de-mort-requise-contre-le-tueur-de-charleston-4250674">           
                                 <div class="photo  ">
-                  <img  width="310" height="190" alt="Douze personnes comparaissent à partir de lundi devant le tribunal correctionnel de Grenoble pour un projet très élaboré de braquage contre Oberthur Fiduciaire à Rennes." title="Photo : Philippe Renault / archives Ouest-France" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/21/rennes-limprimerie-de-billets-echappe-au-casse-du-siecle.jpg?itok=YtEBKDIR" />                </div>
-                <p>Rennes. L'imprimerie de billets échappe au casse du siècle</p>
+                  <img  width="310" height="190" alt="La peine de mort sera requise contre le tueur de Charleston" title="Photo : Reuters" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/25/etats-unis-peine-de-mort-requise-contre-le-tueur-de-charleston.jpg?itok=-G1EhAXC" />                </div>
+                <p>Etats-Unis. Peine de mort requise contre le tueur de Charleston</p>
               </a>
             </article>
             <ul>
                             <li>
                 <p>
-                  <a href="/sport/football/coupe-de-france/coupe-de-france-paris-le-regne-absolu-4242534">
-                    Coupe de France. Paris, le règne absolu                  </a>
+                  <a href="/politique/francois-hollande/comment-hollande-peut-il-se-sortir-du-bourbier-4250683">
+                    Comment Hollande peut-il se sortir du bourbier ?                  </a>
                 </p>
               </li>
                             <li>
                 <p>
-                  <a href="/economie/emploi/loi-travail/loi-travail-ou-trouver-du-carburant-ce-week-end-carte-interactive-4242322">
-                    Pénurie. Où trouver du carburant ce week-end ? [carte interactive]                  </a>
+                  <a href="/societe/justice/le-fils-des-balkany-mis-en-examen-pour-fraude-fiscale-4250667">
+                    Le fils du couple Balkany mis en examen pour fraude fiscale                  </a>
                 </p>
               </li>
                       </ul>
       </div>
         </div>
 </section>
+  <div class="block-same-subject">
+  <div class="block-same-subject__title">Les Tops articles sur : Normandie</div>
+  <div class="row grid_2-3_1-3">
+    <div>
+      <article class="block-same-subject__focus add-icon">
+        <a href="/normandie/le-havre-la-cim-larret-4248056">
+          <figure class="photo"><img itemprop="image"  width="640" height="360" alt="Devant l&#039;entrée d&#039;ExxonMobil lundi 23 mai." src="http://www.ouest-france.fr/sites/default/files/styles/image-640x360/public/2016/05/24/le-havre-la-cim-larret.jpg?itok=vclIMA8V"/>
+<figcaption>
+Devant l'entrée d'ExxonMobil lundi 23 mai.&nbsp;|&nbsp;Vanessa Leroy</figcaption>
+</figure>          <p class="block-same-subject__focus-title">Pénurie de carburant. Les terminaux pétroliers du Havre à l'arrêt</p>
+        </a>
+        <p class="block-same-subject__focus-description">Lundi 23 mai au soir, les salariés ont voté l'arrêt de la compagnie industrielle maritime au Havre. Les salariés d'ExxonMobil se sont prononcés ce matin mardi pour une grève.</p>
+      </article>
+    </div>
+    <div>
+              <article class="block-same-subject__article">
+          <p class="block-same-subject__article-title"><a href="/normandie/lex-directeur-du-chu-de-caen-juge-demain-4247168">L'ex-directeur du CHU de Caen jugé demain</a></p>
+          <p class="block-same-subject__article-description">Joël Martinez, directeur du CHU de Caen (2007-2009), comparait demain mardi au tribunal de Caen. On lui reproche d’avoir fait rénover sa villa de fonction à grands frais.</p>
+        </article>
+              <article class="block-same-subject__article">
+          <p class="block-same-subject__article-title"><a href="/normandie/gisors-leau-du-robinet-impropre-la-consommation-4247126">Gisors : l'eau du robinet impropre à la consommation</a></p>
+          <p class="block-same-subject__article-description">Depuis ce lundi, il est interdit de consommer l'eau du robinet dans la commune de Gisors jusqu'à nouvel ordre.</p>
+        </article>
+              <article class="block-same-subject__article">
+          <p class="block-same-subject__article-title"><a href="/normandie/greve-la-sncf-le-point-sur-la-situation-en-normandie-4250643">Grève à la SNCF : le point sur la situation en Normandie</a></p>
+          <p class="block-same-subject__article-description">Ce mercredi 25 mai, une nouvelle journée de grève est menée à la SNCF par la CGT et Sud Rail. Le point sur les perturbations à prévoir aujourd'hui et demain.</p>
+        </article>
+          </div>
   </div>
+</div>  </div>
           </div>
         </div>
       
@@ -1742,7 +1758,7 @@ Ce déblocage "devra permettre de réapprovisionner les stations de Seine-Mariti
   <div id="hidden-variables">
   <input id="theme_sug" type="hidden" value="page__node" />
   <input id="arg_0" type="hidden" value="node" />
-  <input id="arg_1" type="hidden" value="3622439" />
+  <input id="arg_1" type="hidden" value="526221" />
   <input id="arg_2" type="hidden" value="" />
   <input id="arg_3" type="hidden" value="" />
   <input id="inseeCode" type="hidden" value="R23" />
@@ -1752,7 +1768,7 @@ Ce déblocage "devra permettre de réapprovisionner les stations de Seine-Mariti
   <input id="rubrique" type="hidden" value="Normandie" />
   <input id="sousRub" type="hidden" value="" />
   <input id="sousSousRub" type="hidden" value="" />
-  <input id="idNiveau2" type="hidden" value="1" />
+  <input id="idNiveau2" type="hidden" value="151" />
   <input id="logSite" type="hidden" value="http://logc1" />
   <input id="idSite" type="hidden" value="61164" />
   <input id="gtmId" type="hidden" value="GTM-255LW" />
@@ -1785,8 +1801,8 @@ Ce déblocage "devra permettre de réapprovisionner les stations de Seine-Mariti
 
 <script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__SewzmYm7kqZyKkZ9NYvP39MADBSyMzp0WvD--UroNdo__N3HqHR9R-OaBeJPib93Z8ph6uCGu5pp9yzLHlLJWOMs__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
 <script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__imSrcwWhj4DvDKyBQURSz9jb5jP_Nzi3zxrBf2QFeAg__XVUENxbLFcQlQiQwY9ed18S3E7ODJDOxeWtR-TQRDT0__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
-<script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__vZlSTJ9XoyPST4KDRZxFEHnJbx7bxcIlsYuwCkM4eA8__VdDepFZiA7cZES-6tOkdkBVAN8cZ_tPaMvbhoNyTxMg__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
-<script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__hLA04RGyNfm4S27a6_AtUFY8I8Ku_xySBs3s9xa_jWQ__wFsb78s_CQrTE1KGye_KU-bw31Si_g4AIl27nXTmaZE__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
+<script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__ix_pjrASnucdVJOs-46XUL_hff1r5BxThjyBHhdotYI__6n8NTxgfS7tmhinmgfCZPOHFJp7Cmqv_4fSWU4KK-iI__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
+<script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__QDcM6GIWqEFz2jdL48YatOp0n3EODkqzskle_X3-DD4__yarYBISFR-aKGF8zNJ1xFPeDaxRfFGgiWvDUyQ_99lc__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
                   <div id="fullloader">
               <div class="status">&nbsp;</div>
           </div>
@@ -1843,6 +1859,6 @@ Ce déblocage "devra permettre de réapprovisionner les stations de Seine-Mariti
     };
   })();
 
-</script>    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"3511bd0387","applicationID":"2820635","transactionName":"ZlxSYEJSCkdZWkQMCl8WcVdEWgtaF1dfAQBuSVFTVWwSXV1O","queueTime":0,"applicationTime":834,"atts":"ShtRFgpIGUk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</script>    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"3511bd0387","applicationID":"2820635","transactionName":"ZlxSYEJSCkdZWkQMCl8WcVdEWgtaF1dfAQBuSVFTVWwSXV1O","queueTime":0,"applicationTime":504,"atts":"ShtRFgpIGUk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
 
 </html>

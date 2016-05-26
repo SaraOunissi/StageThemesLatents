@@ -6,45 +6,45 @@
                 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"Ug4AWFdACgsCVFdRAg=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);</script>
         <meta name="viewport" content="width=device-width">
-        <title>Lutte ouvrière en centre-ville</title>
+        <title>Ligue 1. Caen fait sensation devant un Marseille inoffensif</title>
         <!--[if IE]><![endif]-->
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <![endif]--><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="twitter:app:id:ipad" content="493304166" />
 <meta name="twitter:app:name:ipad" content="Ouest-France" />
-<meta name="twitter:app:url:ipad" content="ofv2://Article/3621001" />
-<meta name="twitter:app:url:iphone" content="ofv2://Article/3621001" />
+<meta name="twitter:app:url:ipad" content="ofv2://Article/526186" />
+<meta name="twitter:app:url:iphone" content="ofv2://Article/526186" />
 <meta name="twitter:app:id:googleplay" content="com.ouest.france" />
-<meta name="description" content="Hier, le parti anti-capitaliste était présent dans les rues de Bayeux. Les militants ont échangé avec les passants." />
+<meta name="description" content="Joueur et longtemps dominateur, Caen le promu a fait vivre un cauchemar au champion marseillais, à l&#039;abandon offensivement, samedi au Vélodrome lors" />
 <link rel="shortcut icon" href="http://www.ouest-france.fr/misc/favicon.ico" type="image/vnd.microsoft.icon" />
-<meta name="twitter:app:url:googleplay" content="ofv2://Article/3621001" />
+<meta name="twitter:app:url:googleplay" content="ofv2://Article/526186" />
 <meta name="twitter:app:id:iphone" content="493304166" />
 <meta name="twitter:app:name:googleplay" content="Ouest-France" />
 <meta name="twitter:app:country" content="FR" />
 <meta property="al:ios:app_name" content="Ouest-France" />
-<meta property="al:android:url" content="ofv2://Article/3621001" />
+<meta property="al:android:url" content="ofv2://Article/526186" />
 <meta property="al:ios:app_store_id" content="493304166" />
-<meta property="al:ios:url" content="ofv2://Article/3621001" />
-<link rel="canonical" href="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" />
+<meta property="al:ios:url" content="ofv2://Article/526186" />
+<link rel="canonical" href="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" />
 <meta property="al:android:app_name" content="Ouest-France" />
 <meta property="al:android:package" content="com.ouest.france" />
-<meta name="twitter:url" content="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" />
-<meta property="al:web:url" content="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" />
-<link rel="alternate" href="ios-app://493304166/ofv2/article/3621001" />
-<link rel="alternate" href="android-app://com.ouest.france/ofv2/article/3621001" />
+<meta name="twitter:url" content="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" />
+<meta property="al:web:url" content="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" />
+<link rel="alternate" href="ios-app://493304166/ofv2/article/526186" />
+<link rel="alternate" href="android-app://com.ouest.france/ofv2/article/526186" />
 <meta name="twitter:app:name:iphone" content="Ouest-France" />
                                 <meta property="og:site_name" content="Ouest-France.fr">
-                  <meta property="og:description" content="Hier, le parti anti-capitaliste était présent dans les rues de Bayeux. Les militants ont échangé avec les passants.">
-                <meta property="og:title" content="Lutte ouvrière en centre-ville">
+                  <meta property="og:description" content="Joueur et longtemps dominateur, Caen le promu a fait vivre un cauchemar au champion marseillais, à l'abandon offensivement, samedi au Vélodrome lors">
+                <meta property="og:title" content="Ligue 1. Caen fait sensation devant un Marseille inoffensif">
         <meta property="og:locale" content="fr_FR">
                   <meta property="og:type" content="article">
-                      <meta property="og:image" content="http://www.ouest-france.fr/sites/default/files/styles/image-900x500/public/2015/08/15/lutte-ouvriere-en-centre-ville.jpg?itok=1VA_PIx1">
+                      <meta property="og:image" content="http://www.ouest-france.fr/sites/default/files/styles/image-900x500/public/2013/09/27/ligue-1.caen-fait-sensation-devant-un-marseille-inoffensif.jpg?itok=NhJV9xOU">
             <meta property="og:image:height"
                   content="500">
             <meta property="og:image:width" content="900">
             <meta property="og:image:type"
                   content="image/jpeg">
-                          <meta property="og:url" content="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001/">
+                          <meta property="og:url" content="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186/">
         <meta property="fb:page_id"
               content="270122530294">
         <meta property="fb:app_id"
@@ -53,20 +53,20 @@
         <meta name="twitter:site"
               content="@ouestfrance">
         <meta name="twitter:creator" content="@ouestfrance">
-        <meta name="twitter:title" content="Lutte ouvrière en centre-ville">
+        <meta name="twitter:title" content="Ligue 1. Caen fait sensation devant un Marseille inoffensif">
                   <meta name="twitter:description"
-                content="Hier, le parti anti-capitaliste était présent dans les rues de Bayeux. Les militants ont échangé avec les passants.">                        <meta name="twitter:image" content="http://www.ouest-france.fr/sites/default/files/styles/image-900x500/public/2015/08/15/lutte-ouvriere-en-centre-ville.jpg?itok=1VA_PIx1">
+                content="Joueur et longtemps dominateur, Caen le promu a fait vivre un cauchemar au champion marseillais, à l'abandon offensivement, samedi au Vélodrome lors">                        <meta name="twitter:image" content="http://www.ouest-france.fr/sites/default/files/styles/image-900x500/public/2013/09/27/ligue-1.caen-fait-sensation-devant-un-marseille-inoffensif.jpg?itok=NhJV9xOU">
                 <meta name="verification" content="434dd8e4f14a2006b4aa70e8fb27e860"/>
         <link type="text/css" rel="stylesheet" href="//www.ouest-france.fr/sites/default/files/advagg_css/css__dQoZopzLcxgr3NmQ6o0tJbQsLX-g5nEvN76xYQk8PwY__JHH054tqFDux2Xizc1nfyQW6EYaWUsReg2wX0xCN2ko__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.css" media="all" />
 <link type="text/css" rel="stylesheet" href="//www.ouest-france.fr/sites/default/files/advagg_css/css__N94oAkh7ULeUIHlaAwL0SSwk5pnJTq91S0CBc6W3z0Y__yqK_SgK-cvHEybyuAd7O4S0fvrAcfdeuQ9LQJOK6iqU__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.css" media="all" />
-<link type="text/css" rel="stylesheet" href="//www.ouest-france.fr/sites/default/files/advagg_css/css__TjeTDmKdgpyoOBiGw81Wbltxp2LdP7vCZ95gWZb-a54__A55j8za4pbhYoPP-67tFoux78vfGSvk5zjNCMEZDKFE__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="//www.ouest-france.fr/sites/default/files/advagg_css/css__TjeTDmKdgpyoOBiGw81Wbltxp2LdP7vCZ95gWZb-a54__AXtNzjGfqYVWgPKGz3y23whzsptnmQ2547q5JBBcu14__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.css" media="all" />
 <link type="text/css" rel="stylesheet" href="//www.ouest-france.fr/sites/default/files/advagg_css/css__YAWBMQ4l36ogENo-fllwQSCUQZ5G50jJ-JFxWkRFpxY__9GMcshzTFP6KxT6UUCMpLrYHC8JMTbH1XVxIVkT4bPo__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.css" media="all" />
 <script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__EtEv8D-v9WkS6Ol7F1HQ9jp8pA0sa39LetxCwqM6QWo__hp6VCJ28cf3uz4CDUTdw_r9Ief6oBFikpp2OsdnLydU__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
 <script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__t4yJTh1zELptLwEd_lGNdJt8BbUGaYE9Myo0zTFXOX4__0VZzDVExFtZVQRFiZ5XgAx_jrx0rX2kgswwHrkzeH48__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
 <script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__3UUhvLPh5jliNOHT_H8-m9fqkNNBzx9AIR4Gekv3TKA__4ck5WlM5gF-Nw2RQ82C6GK5cDSQLKx93u8eqbdLXS_E__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
 <script type="text/javascript">
 <!--//--><![CDATA[//><!--
-jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"front","theme_token":"mJHM9Pj_J6K_022mUug5cPTG5j8Bw1stmCGnleN8B8o","jquery_version":"1.7","css":{"misc\/ui\/jquery.ui.menu.css":1,"sites\/all\/modules\/contrib\/morecomments\/morecomments.css":1,"sites\/all\/libraries\/php-emoji\/lib\/emoji.css":1,"sites\/all\/themes\/front\/css\/front.css":1,"sites\/all\/themes\/front\/css\/specifics\/adblock.css":1,"sites\/all\/modules\/SIN\/actualite\/detail\/assets\/css\/pdf-display.css":1},"js":{"misc\/jquery.once.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.button.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.mouse.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.position.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.dialog.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.menu.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.autocomplete.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister\/js\/casregister_autologin.js":1,"sites\/all\/modules\/custom\/of_performances\/js\/of_performances.js":1,"sites\/all\/modules\/custom\/of_theme\/js\/of_theme.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister_profile\/js\/casregister_profile.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister_profile\/js\/casregister_maskinput.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_login.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_password.js":1,"misc\/progress.js":1,"sites\/all\/modules\/contrib\/ctools\/js\/modal.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_popup.js":1,"sites\/all\/modules\/contrib\/morecomments\/morecomments.js":1,"sites\/all\/modules\/custom\/of_mon_compte\/js\/unsubscribeToServices.js":1,"sites\/all\/modules\/custom\/of_mon_compte\/js\/of_mon_compte.js":1,"sites\/all\/modules\/SIN\/externe\/dfp\/js\/googletag.js":1,"sites\/all\/modules\/custom\/of_publicite\/scripts-pub.js":1,"sites\/all\/modules\/custom\/of_ma_commune\/js\/of_ma_commune.js":1,"sites\/all\/libraries\/base64\/base64.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/libraries\/moment\/moment.min.js":1,"sites\/all\/libraries\/pikaday\/moment.min.js":1,"sites\/all\/libraries\/pikaday\/pikaday.min.js":1,"sites\/all\/libraries\/pikaday\/pikaday.jquery.min.js":1,"sites\/all\/libraries\/jcarousel\/jquery.jcarousel.min.js":1,"sites\/all\/libraries\/jquery-placeholder-master\/jquery.placeholder.js":1,"sites\/all\/libraries\/unveil\/unveil.min.js":1,"sites\/all\/libraries\/cookie\/jquery.cookie.js":1,"sites\/all\/libraries\/autoellipsis\/jquery.autoellipsis.min.js":1,"sites\/all\/libraries\/social-likes\/social-likes.js":1,"sites\/all\/libraries\/social-likes\/codebird.js":1,"sites\/all\/libraries\/iframetracker\/jquery.iframetracker.js":1,"sites\/all\/themes\/base\/js\/of-dollar.js":1,"sites\/all\/themes\/base\/js\/of-log.js":1,"sites\/all\/themes\/base\/js\/base.js":1,"sites\/all\/themes\/base\/js\/of-modale.js":1,"sites\/all\/themes\/base\/js\/of-isloading.js":1,"sites\/all\/themes\/front\/js\/read-speaker.js":1,"sites\/all\/themes\/front\/js\/front.js":1,"sites\/all\/themes\/front\/js\/front-closure.js":1,"sites\/all\/themes\/front\/js\/gtm.js":1,"sites\/all\/themes\/front\/js\/subscribe-campaign.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/drupal.js":1,"public:\/\/languages\/fr_Dhe-iNDGuu-xHej1J4GPDEh6c6xSOOV4W93I3v5Vb_M.js":1,"sites\/all\/themes\/front\/js\/gtm-init.js":1}},"casregister":{"autologin":{"baseurl":"http:\/\/www.ouest-france.fr\/","ajaxUrl":"http:\/\/www.ouest-france.fr\/casregister\/autologin\/ajax","username":"","password":"","autologin":false,"errorUrl":"http:\/\/www.ouest-france.fr\/casregister\/autologin\/error","timeout":20000,"destination":"node\/3621001","theme_function":"casregister_popup_connexion"},"loginblock":{"ajaxUrl":"http:\/\/www.ouest-france.fr\/casregister\/loginblock\/ajax"}},"CToolsModal":{"loadingText":"En cours de chargement...","closeText":"Fermer la fen\u00eatre","closeImage":"\u003Cimg  alt=\u0022Fermer la fen\u00eatre\u0022 title=\u0022Fermer la fen\u00eatre\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/ctools\/images\/icon-close-window.png\u0022 \/\u003E","throbber":"\u003Cimg  alt=\u0022En cours de chargement\u0022 title=\u0022En cours de chargement...\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/ctools\/images\/throbber.gif\u0022 \/\u003E"},"modal-popup-small":{"modalSize":{"type":"fixed","width":300,"height":300},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"modal-popup-medium":{"modalSize":{"type":"fixed","width":550,"height":550},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"modal-popup-large":{"modalSize":{"type":"scale","width":0.8,"height":0.8},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"news_refresh_rate":"30","morecomments_pager":"\u003Ca href = \u0027javascript:;\u0027 class=\u0027morecomments-button node-3621001 page-1\u0027\u003EAfficher plus de r\u00e9actions\u003C\/a\u003E","of_mon_compte":{"sidNlGeneral":"844000"},"of-unsubscribe-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":505,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of-password-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":300,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of-login-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":505,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of_ma_commune":{"theme":"front","mobileUl":"#main-navigation ul.menu li .recherche-communes .ui-autocomplete","serverBasePath":""},"urlIsAjaxTrusted":{"\/normandie\/bayeux-14400\/lutte-ouvriere-en-centre-ville-3621001":true},"actualite_node":{"twitter_consumer_key":"s840XqQAf1Ap4eWZNSZPOiura","twitter_consumer_secret":"OM8nre60j0KBeOmAJzB7RKngzOhxRHyguRrqx3tSlpvMxxas9R","twitter_access_token":"35777570-KJq9GcYD2BQPvDEMDnU0IV3SZ0PvZBU8XeNu7dpff","twitter_acess_token_secret":"JMQauqW0VBY014l11WYvCXbXWKZyQOdaK8Ar5ftSceRbX"},"dfp_vars":{"ofb1":"ouestfrance","ofb2":"regions","ofb3":"normandie","ofb4":"calvados","ofb5":"140401_bayeux","oftp":"bayeux","ofts":["bayeux"],"zc":"140401_bayeux","ville":"bayeux","dpt":"14","in":"14047","cp":"14400","pagetype":"article","publisherid":"49926454","usedfp":true,"responsive":true,"slotName":"\/49926454\/ouestfrance\u003Esite\/regions\/normandie\/calvados\/140401_bayeux\u003Earticle"},"server_name":"www.ouest-france.fr"});
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"front","theme_token":"A3kTbeuPLhKqqXG2mqLU3mvDwviONxLgtqhqnJBIFqs","jquery_version":"1.7","css":{"misc\/ui\/jquery.ui.menu.css":1,"sites\/all\/modules\/contrib\/morecomments\/morecomments.css":1,"sites\/all\/libraries\/php-emoji\/lib\/emoji.css":1,"sites\/all\/themes\/front\/css\/front.css":1,"sites\/all\/themes\/front\/css\/specifics\/adblock.css":1,"sites\/all\/modules\/SIN\/actualite\/detail\/assets\/css\/pdf-display.css":1},"js":{"misc\/jquery.once.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.button.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.mouse.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.position.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.dialog.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.menu.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.autocomplete.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister\/js\/casregister_autologin.js":1,"sites\/all\/modules\/custom\/of_performances\/js\/of_performances.js":1,"sites\/all\/modules\/custom\/of_theme\/js\/of_theme.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister_profile\/js\/casregister_profile.js":1,"sites\/all\/modules\/of\/casregister\/modules\/casregister_profile\/js\/casregister_maskinput.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_login.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_password.js":1,"misc\/progress.js":1,"sites\/all\/modules\/contrib\/ctools\/js\/modal.js":1,"sites\/all\/modules\/contrib\/modal_forms\/js\/modal_forms_popup.js":1,"sites\/all\/modules\/contrib\/morecomments\/morecomments.js":1,"sites\/all\/modules\/custom\/of_mon_compte\/js\/unsubscribeToServices.js":1,"sites\/all\/modules\/custom\/of_mon_compte\/js\/of_mon_compte.js":1,"sites\/all\/modules\/SIN\/externe\/dfp\/js\/googletag.js":1,"sites\/all\/modules\/custom\/of_publicite\/scripts-pub.js":1,"sites\/all\/modules\/custom\/of_ma_commune\/js\/of_ma_commune.js":1,"sites\/all\/libraries\/base64\/base64.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/libraries\/moment\/moment.min.js":1,"sites\/all\/libraries\/pikaday\/moment.min.js":1,"sites\/all\/libraries\/pikaday\/pikaday.min.js":1,"sites\/all\/libraries\/pikaday\/pikaday.jquery.min.js":1,"sites\/all\/libraries\/jcarousel\/jquery.jcarousel.min.js":1,"sites\/all\/libraries\/jquery-placeholder-master\/jquery.placeholder.js":1,"sites\/all\/libraries\/unveil\/unveil.min.js":1,"sites\/all\/libraries\/cookie\/jquery.cookie.js":1,"sites\/all\/libraries\/autoellipsis\/jquery.autoellipsis.min.js":1,"sites\/all\/libraries\/iframetracker\/jquery.iframetracker.js":1,"sites\/all\/themes\/base\/js\/of-dollar.js":1,"sites\/all\/themes\/base\/js\/of-log.js":1,"sites\/all\/themes\/base\/js\/base.js":1,"sites\/all\/themes\/base\/js\/of-modale.js":1,"sites\/all\/themes\/base\/js\/of-isloading.js":1,"sites\/all\/themes\/front\/js\/read-speaker.js":1,"sites\/all\/themes\/front\/js\/front.js":1,"sites\/all\/themes\/front\/js\/front-closure.js":1,"sites\/all\/themes\/front\/js\/gtm.js":1,"sites\/all\/themes\/front\/js\/subscribe-campaign.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/drupal.js":1,"public:\/\/languages\/fr_Dhe-iNDGuu-xHej1J4GPDEh6c6xSOOV4W93I3v5Vb_M.js":1,"sites\/all\/themes\/front\/js\/gtm-init.js":1}},"casregister":{"autologin":{"baseurl":"http:\/\/www.ouest-france.fr\/","ajaxUrl":"http:\/\/www.ouest-france.fr\/casregister\/autologin\/ajax","username":"","password":"","autologin":false,"errorUrl":"http:\/\/www.ouest-france.fr\/casregister\/autologin\/error","timeout":20000,"destination":"node\/526186","theme_function":"casregister_popup_connexion"},"loginblock":{"ajaxUrl":"http:\/\/www.ouest-france.fr\/casregister\/loginblock\/ajax"}},"CToolsModal":{"loadingText":"En cours de chargement...","closeText":"Fermer la fen\u00eatre","closeImage":"\u003Cimg  alt=\u0022Fermer la fen\u00eatre\u0022 title=\u0022Fermer la fen\u00eatre\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/ctools\/images\/icon-close-window.png\u0022 \/\u003E","throbber":"\u003Cimg  alt=\u0022En cours de chargement\u0022 title=\u0022En cours de chargement...\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/ctools\/images\/throbber.gif\u0022 \/\u003E"},"modal-popup-small":{"modalSize":{"type":"fixed","width":300,"height":300},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"modal-popup-medium":{"modalSize":{"type":"fixed","width":550,"height":550},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"modal-popup-large":{"modalSize":{"type":"scale","width":0.8,"height":0.8},"modalOptions":{"opacity":0.85,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg  alt=\u0022En cours de chargement...\u0022 title=\u0022En cours de chargement\u0022 src=\u0022http:\/\/www.ouest-france.fr\/sites\/all\/modules\/contrib\/modal_forms\/images\/loading_animation.gif\u0022 \/\u003E","closeText":"Fermer"},"news_refresh_rate":"30","morecomments_pager":"\u003Ca href = \u0027javascript:;\u0027 class=\u0027morecomments-button node-526186 page-1\u0027\u003EAfficher plus de r\u00e9actions\u003C\/a\u003E","of_mon_compte":{"sidNlGeneral":"844000"},"of-unsubscribe-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":505,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of-password-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":300,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of-login-form":{"modalTheme":"ModalFormsPopup","throbberTheme":"CToolsModalThrobber","animation":"fadeIn","animationSpeed":"fast","modalSize":{"type":"fixed","height":505,"width":565,"contentRight":0,"contentBottom":60},"modalOptions":{"opacity":0.85,"background":"#000"}},"of_ma_commune":{"theme":"front","mobileUl":"#main-navigation ul.menu li .recherche-communes .ui-autocomplete","serverBasePath":""},"urlIsAjaxTrusted":{"\/normandie\/bayeux-14400\/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186":true},"actualite_node":{"twitter_consumer_key":"s840XqQAf1Ap4eWZNSZPOiura","twitter_consumer_secret":"OM8nre60j0KBeOmAJzB7RKngzOhxRHyguRrqx3tSlpvMxxas9R","twitter_access_token":"35777570-KJq9GcYD2BQPvDEMDnU0IV3SZ0PvZBU8XeNu7dpff","twitter_acess_token_secret":"JMQauqW0VBY014l11WYvCXbXWKZyQOdaK8Ar5ftSceRbX"},"dfp_vars":{"ofb1":"ouestfrance","ofb2":"regions","ofb3":"normandie","ofb4":"calvados","ofb5":"140401_bayeux","oftp":"bayeux","ofts":["bayeux","caen","deauville","falaise","lisieux","vire_normandie","sm_caen","olympique_de_marseille"],"zc":"140401_bayeux","ville":"bayeux","dpt":"14","in":"14047","cp":"14400","pagetype":"article","publisherid":"49926454","usedfp":true,"responsive":true,"slotName":"\/49926454\/ouestfrance\u003Esite\/regions\/normandie\/calvados\/140401_bayeux\u003Earticle"},"server_name":"www.ouest-france.fr"});
 //--><!]]>
 </script>
                   <script type="text/javascript">
@@ -83,6 +83,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
             })();
             window._nli = window._nli || [];
             window._nli.push(['brand', 'Ro%2B8RdcyygZuE4lmYOSNUYa5RFq0zYtmmgaeJsvbUwDjgxeIw3Psqceh6od%2BH9mU5h2L71OAq3Hamg4k2mctHA%3D%3D']);
+            window._nli.push(['shareList', {'target':'nlibtn'}]);
           </script>
                 <!-- HTML5 element support for IE6-8 -->
         <!--[if lt IE 9]>
@@ -102,10 +103,10 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
                                 </head>
 
     <!--[if IE 8]>
-    <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-3621001 node-type-article lt-ie9" >
+    <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-526186 node-type-article lt-ie9" >
     <![endif]-->
     <!--[if gt IE 8]><!-->
-    <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-3621001 node-type-article" >
+    <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-526186 node-type-article" >
         <!--<![endif]-->
                 
   <div id="pub_interstitiel"></div>
@@ -130,16 +131,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
         <li class="nav-top__item nav-top__item-social"><a target="_blank" href="https://plus.google.com/+ouestfrance/posts" class="google-plus"><i title="Rejoignez Ouest-France sur Google+" class="icon-google-plus"></i></a></li>
 
                             
-<li class="nav-top__item nav-top__item-meteo item-dropdown "><a href="javascript:void(0);"><img src="/sites/all/modules/SIN/externe/meteo/pictos/WWNEBUL_P37.png" height="36" width="36" alt="Variable avec averses"><span>Météo</span></a>
-  <div class="subnav">     
-    <a class="meteo-city" href="/meteo/Rennes/35238" >
-      <div class="meteo-city__name">Rennes</div>
-      <img src="http://www.ouest-france.fr/sites/all/modules/SIN/externe/meteo/pictos/WWNEBUL_P37.png" alt="météo" />      <div class="meteo-city__degres">14&deg;C</div>
-      <div class="meteo-city__time">cet après-midi</div>  
-    </a>
-    <a class="meteo-all" href="/meteo/"><span>+</span> Toutes les prévisions</a>
-  </div>
-</li>
+    <li class="nav-top__item nav-top__item-meteo item-dropdown ">
+      <a href="/meteo/">
+        <img src="http://www.ouest-france.fr/sites/all/modules/SIN/externe/meteo/pictos/WWNEBUL_P1.png" height="36" width="36" alt="Toutes les prévisions météo">
+        <span>Météo</span>
+      </a>
+    </li>
         
         <li class="nav-top__item nav-top__item-promo"><a href="https://abonnement.ouest-france.fr/?utm_source=of&utm_medium=lien&utm_campaign=of-abo&utm_content=surmenu_boutonjaune" onclick="_gaq.push(['_trackEvent', 'OF - Nav Haute &ndash; Bouton Abo', 'Bouton 1', 'Abonnez vous a Ouest France']);" target="_blank">Abonnez-vous à Ouest-France</a></li>
 
@@ -191,12 +188,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
                     </div>
 
         <div class="header-search">
-            <form action="/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+            <form action="/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
   <div class="form-item form-type-textfield form-item-search-block-form">
   <label class="element-invisible" for="edit-search-block-form--2">Rechercher </label>
  <input title="Indiquer les termes à rechercher" placeholder="Rechercher sur Ouest-France.fr" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
 </div>
-<div class="form-actions form-wrapper" id="edit-actions"><button class="btn"><i class="icon-search"></i></button><input class="hide form-submit" type="submit" id="edit-submit" name="op" value="002" /></div><input type="hidden" name="form_build_id" value="form-2DJF_twM0YLnLtAoYWkRy94Fnc9Bdam_hhtYWTmE8_g" />
+<div class="form-actions form-wrapper" id="edit-actions"><button class="btn"><i class="icon-search"></i></button><input class="hide form-submit" type="submit" id="edit-submit" name="op" value="002" /></div><input type="hidden" name="form_build_id" value="form-8YoOxycAXrAr7pvO4_OjIMDTYBoxR31jF6zQhxs1S6Q" />
 <input type="hidden" name="form_id" value="search_block_form" />
 </div>
 </div></form>        </div>
@@ -304,6 +301,11 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     <li><a href="/insolite/">Insolite</a></li>
     <li><a class="ancre" href="/culture/people/">People</a></li>
     <li><a class="ancre" href="/sciences/">Sciences</a></li>
+    <li>
+        <ul class="col-nb">
+            <li><a href="/high-tech/">Multim&eacute;dia</a></li>
+        </ul>
+    </li>
 </ul>
 <ul class="col-nb" data-col-nb="7">
     <li><a href="/economie/agriculture/">Agriculture</a></li>
@@ -313,9 +315,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
                 <a href="/economie/agriculture/essais-agricoles/">Essais agricoles</a>
             </li>
             <li>
-                <a
-                    href="/economie/entreprises/lettre-agri-agro/">Lettre
-                    Agri-Agro</a>
+                <a href="/economie/entreprises/lettre-agri-agro/">Lettre Agri-Agro</a>
             </li>
         </ul>
     </li>
@@ -563,12 +563,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <ul class="last">
     <li>
         <ul class="col-nb" data-col-nb="2">
+            <li><a href="/sport/euro-2016/">Euro 2016</a></li>
             <li><a href="/sport/24-heures-du-mans/">24 Heures du Mans</a></li>
+            <li><a href="/tour-de-france/">Tour de France 2016</a></li>
+            <li><a href="/jeux-olympiques/">Jeux Olympiques</a></li>
             <li><a href="/vendee-globe/">Vend&eacute;e Globe</a></li>
             <li><a href="/spi/">Spi Ouest-France</a></li>
-            <li><a href="/sport/euro-2016/">Euro 2016</a></li>
-            <li><a href="/jeux-olympiques/">Jeux Olympiques</a></li>
-            <li><a href="/tour-de-france/">Tour de France 2016</a></li>
         </ul>
     </li>
 </ul>
@@ -591,9 +591,6 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     <li><a href="/medias/television/">T&eacute;l&eacute;vision</a></li>
     <li><a href="/culture/television/series/">Séries</a></li>
     <li><a href="http://tvmag.ouest-france.fr/" target="_blank">Programme Télé</a></li>
-</ul>
-<ul class="col-nb" data-col-nb="4">
-    <li><a href="/high-tech/">Multim&eacute;dia</a></li>
 </ul>
 <ul class="col-nb" data-col-nb="5">
     <li><a href="/culture/patrimoine/">Patrimoine</a></li>
@@ -727,22 +724,25 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
         <ul class="nav-moment">
       <li class="first">En ce moment</li>
                                   <li>
-                      <a href="http://www.ouest-france.fr/culture/cinema/festival-cannes/#from-en-ce-moment">Festival de Cannes                        </a>
-        </li>
-                        <li>
-                      <a href="http://www.ouest-france.fr/societe/faits-divers/violences-rennes/#from-en-ce-moment">Violences à Rennes                        </a>
-        </li>
-                        <li>
                       <a href="http://www.ouest-france.fr/economie/emploi/loi-travail/#from-en-ce-moment">Loi Travail                        </a>
         </li>
                         <li>
-                      <a href="http://www.ouest-france.fr/environnement/amenagement-du-territoire/notre-dame-des-landes/#from-en-ce-moment">NDDL                        </a>
+                      <a href="http://www.ouest-france.fr/economie/transports/penurie-de-carburant/#from-en-ce-moment">Pénurie de carburant                        </a>
+        </li>
+                        <li>
+                      <a href="http://www.ouest-france.fr/societe/faits-divers/crash/egyptair/#from-en-ce-moment">Crash du vol EgyptAir                        </a>
+        </li>
+                        <li>
+                      <a href="http://www.ouest-france.fr/roland-garros/#from-en-ce-moment">Roland Garros                        </a>
         </li>
                         <li>
                       <a href="http://www.ouest-france.fr/sport/euro-2016/#from-en-ce-moment">Euro 2016                        </a>
         </li>
                         <li>
-                      <a href="http://www.ouest-france.fr/economie/entreprises/stx/harmony-seas/?55_source=of&55_action=of&55_emplacement=bloc-evenement#from-en-ce-moment">Harmony of the Seas                        </a>
+                      <a href="http://www.ouest-france.fr/environnement/amenagement-du-territoire/notre-dame-des-landes/#from-en-ce-moment">NDDL                        </a>
+        </li>
+                        <li>
+                      <a href="http://www.ouest-france.fr/etats-unis/elections-americaines/#from-en-ce-moment">Primaires USA                        </a>
         </li>
                                                             </ul>
       <div id="wrapper">
@@ -800,37 +800,40 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <article class="article detail" id="article-detail" itemscope itemtype="http://schema.org/NewsArticle">
   <header>
   <h1 class="entry-title" itemprop="headline">
-    Lutte ouvrière en centre-ville  </h1>
+    Ligue 1. Caen fait sensation devant un Marseille inoffensif   </h1>
   <span class="metadata">
-          <span class="meta-cat">Bayeux</span> - Modifi&eacute; le <time class="meta-time" itemprop="dateModified" datetime="2015-08-15T04:00:01+02:00">15/08/2015 à 04:00</time>
-       | Publi&eacute; le <time class="meta-time" itemprop="datePublished" datetime="2015-08-13T00:06:25+02:00">13/08/2015 à 00:06</time>
-      </span>
+          <span class="meta-cat">Bayeux</span> - Modifi&eacute; le <time class="meta-time" itemprop="dateModified" datetime="2013-09-27T11:47:01+02:00">27/09/2013 à 11:47</time>
+        </span>
       <div id="readspeaker_button1" class="rs_skip rsbtn_of_skin rs_preserve"><a class="rsbtn_play" accesskey="L" title="Écouter cet article" href="http://app.eu.readspeaker.com/cgi-bin/rsent?customerid=6390&amp;lang=fr_fr&amp;readid=article-detail"><span class="rsbtn_left rspart"><span class="rsbtn_text"><span>écouter</span></span></span><span class="rsbtn_right rsplay rspart"></span></a></div>
           <div class="jcarousel-wrapper" style="position:relative;">
         <div class="jcarousel" data-nb="1" data-nb-medium="1" data-nb-small="1">
           <ul>
                           <li>
-                <figure class="img-caption"><img itemprop="image"  width="640" height="360" alt="Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville." src="http://www.ouest-france.fr/sites/default/files/styles/image-640x360/public/2015/08/15/lutte-ouvriere-en-centre-ville.jpg?itok=ncSUMgdr"/>
+                <figure class="img-caption"><img itemprop="image"  width="640" height="360" alt="D&#039;entrée, El Arabi et les Caennais ont fait tomber le champion marseillais." src="http://www.ouest-france.fr/sites/default/files/styles/image-640x360/public/2013/09/27/ligue-1.caen-fait-sensation-devant-un-marseille-inoffensif.jpg?itok=wJgXtly5"/>
 <figcaption>
-Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.&nbsp;|&nbsp;</figcaption>
+D'entrée, El Arabi et les Caennais ont fait tomber le champion marseillais.&nbsp;|&nbsp;AFP</figcaption>
 </figure>
               </li>
               </ul>
         </div>
           </div>
       <aside class="toolbar rs_skip">
-  <ul class="social-likes item-toolbar no-comments" data-position="top" data-url="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-url-courte="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-url-longue="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-share-text="Je vous recommande de lire : Lutte ouvrière en centre-ville">
-          <li class="facebook facebook" data-network="facebook"  title="Partager sur Facebook">Facebook</li>
-          <li class="twitter twitter" data-network="twitter" title="Partager sur Twitter">Twitter</li>
-          <li class="plusone plusone" data-network="google-plus" title="Partager sur Google+">Google+</li>
-          <li class="mail icon-toolbar-of"><a href="/mail?type=share&amp;id=3621001" title="Envoyer cet article par mail"><i class="icon-envelope"></i></a></li>
+  <ul class="social-likes item-toolbar no-comments" data-position="top" data-url="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-url-courte="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-url-longue="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-share-text="Je vous recommande de lire : Ligue 1. Caen fait sensation devant un Marseille inoffensif ">
+    <li class="facebook social-likes__widget" title="Partager sur Facebook" data-network="facebook"><a href="http://www.ouest-france.fr/node/526186" class="nlibtn" data-social="facebook"><span class="social-likes__button social-likes__button_facebook"><span class="social-likes__icon social-likes__icon_facebook"></span>
+Facebook</span>
+</a></li>
+<li class="twitter social-likes__widget" title="Partager sur Twitter" data-network="twitter"><a href="http://www.ouest-france.fr/node/526186" class="nlibtn" data-social="twitter"><span class="social-likes__button social-likes__button_twitter"><span class="social-likes__icon social-likes__icon_twitter"></span>
+Twitter</span>
+</a></li>
+<li class="plusone social-likes__widget" title="Partager sur Google+" data-network="google-plus"><a href="http://www.ouest-france.fr/node/526186" class="nlibtn" data-social="googleplus"><span class="social-likes__button social-likes__button_plusone"><span class="social-likes__icon social-likes__icon_plusone"></span>
+Google+</span>
+</a></li>
+      <li class="mail icon-toolbar-of"><a href="/mail?type=share&amp;id=526186" title="Envoyer cet article par mail"><i class="icon-envelope"></i></a></li>
               <li class="item-promo"><a href="http://journal.ouest-france.fr/?utm_source=of&utm_medium=lien&utm_campaign=of-journal&utm_content=page-article_boutonjaunehaut" target="_blank">Achetez votre journal numérique</a></li>
           </ul>
-</aside>    <p class="authors"><span itemprop="author" itemtype="http://schema.org/Person">Éloi BESSON.</span></p>
-</header>  <div class="article-content p402_premium">
-          <h2 class="description" itemprop="description">Hier, le parti anti-capitaliste était présent dans les rues de Bayeux. Les militants ont échangé avec les passants.</h2>
+</aside></header>  <div class="article-content p402_premium">
         <p id="article-content" class="inside" itemprop="articleBody">
-      <P><B>« Hollande n'est pas différent de Sarkozy »,</B> pouvait-on voir sur des panneaux installés près de l'office de tourisme. Hier après-midi, des militants de Lutte ouvrière avaient investi le centre-ville pendant quelques heures après-midi. Le but de cette opération était de grossir les rangs du parti. <B>« On veut montrer que les militants veulent ressouder la classe ouvrière »,</B> affirme Patrick Lamiable, militant pour Lutte ouvrière et cheminot à la retraite.</P><P>Renverser le système en place</P><P><B>« On veut renverser le système capitaliste et mettre en place le communisme »,</B> explique Patrick Lamiable, mais aussi <B>« renverser la dictature de la finance et des actionnaires ».</B> L'été, les militants partent à la rencontre <B>« de la classe des travailleurs »</B> pour partager leurs idées avec le plus grand nombre de citoyens. À Bayeux, ils ont réagi sur la situation des agriculteurs<B> </B>: <B>« On est solidaire des éleveurs. Quand on voit les prix de la viande, on se dit que le système ne fonctionne pas ! »</B></P><P>Sortir du capitalisme, faire monter le communisme, rendre les banques et entreprises privées, voici quelques points du programme de Lutte ouvrière. Hier, ils ont débattu et échangé avec les habitants de Bayeux, mais aussi de Saint-Lô. Mais les <B>« caravanes »</B> comme ils appellent ces opérations, ne s'arrêtent pas là. <B>« On va dans les villes significatives des régions »,</B> affirme Patrick Lamiable.</P><P>Et après cela ? La vingtaine de militants repart chez elle. <B>« La majorité d'entre nous travaille, c'est d'ailleurs pour cela que l'on est plus légitime que les partis en place »,</B> glisse le militant dans un sourire.</P><P></P><P>    </p>
+      <p><strong>Joueur et longtemps dominateur, Caen le promu a fait vivre un cauchemar au champion marseillais, à l'abandon offensivement, samedi au Vélodrome lors de la 1ere journée de L1 (1-2). </strong></p><p>La sensation normande vaut sacrée piqûre de rappel pour l'OM, qui peine décidément en attaque et n'a inscrit que deux buts lors des trois dernières rencontres... Paradoxe supplémentaire : l'égalisation marseillaise a été signée Mamadou Samassa, joueur indésirable promis à quitter le club... Il manquait certes Brandao, suspendu, mais la quête d'un attaquant de haut niveau s'impose plus que jamais, d'autant que Niang, qui souhaitait rallier Fenerbahce, ne paraît guère fringant. </p><p>L'OM n'a contrôlé les débats qu'une moitié de mi-temps, grâce à un gros taux de possession de balle. Mais cette avantage se diluait dans une inquiétante impuissance offensive à l'approche des 20 m. </p><p>Sans impact ni percussion, avec un Niang plutôt effacé, le champion de France était en mode mineur. Lucho s'était pourtant créé une énorme occasion, au sortir d'un une-deux avec Niang, mais il piquait trop son ballon (15).</p><p/><h3 class="inter">El Arabi en forme </h3><p>En ligne très resserrée, le promu sortait progressivement du bois, audace en bandoulière à l'instar de l'inusable Traoré. Cela faillit rapidement coûter très cher aux Marseillais, pris de vitesse sur au moins trois occasions franches: une frappe de Mollo sur le poteau (24), une tête de l'actif El Arabi au-dessus devant le but vide (39) et un tir puissant du même El Arabi des 20 m faisait frissonner le stade (42). </p><p>Le scénario catastrophe prenait corps après la pause. Libre de mouvement au milieu, Seube s'avançait tranquillement pour armer son tir des 25 m. Mandanda n'était pas aidé par un léger rebond, mais ce but n'avait rien d'illogique. Il provoquait l'ire des virages, réclamant, encore et toujours, Didier Drogba... </p><p>Deschamps lançait ses réservistes: aucunement décisif, Valbuena cédait sa place à Ben Arfa, toujours plus proche d'un prêt à Newcastle, et Ayew était relayé par Samassa. Niang, qui avait du mal à trouver ses positions, passait de l'axe à gauche, mais c'est encore El Arabi qui faisait sensation: son rush plein axe était stoppé in extremis par Azpilicueta (58). </p><p>Vint enfin la présumée délivrance du stade, dans un climat qui se tendait: à la régulière mais en force, Samassa débordait Sorbon pour égaliser (1-1, 77), petit baiser à l'attention du virage nord au passage... Dans la minute suivante, Niang, décidément peu inspiré, manquait de la tête la balle de break capté par Thebaux. Mais les Normands en voulaient encore: sur un centre à l'arraché de Yatabaré, El Arabi, homme du match, crucifiait Mandanda de la tête (1-2, 86)... </p><p><strong>MARSEILLE - CAEN : 1-2 (0-0)</strong></p><p>Arbitre: M. Castro </p><p><strong>Buts.</strong> Marseille : Samassa (77). Caen : Seube (53), El-Arabi (86) </p><p><strong>Avertissements.</strong> Marseille : E. Cissé (67), L. Ndiaye (75). Caen : Tafforeau (9), Nabab (90+3) </p><p><strong>Marseille : </strong>Mandanda - Azpilicueta, L. Ndiaye, Mbia, Taiwo - Lucho , E. Cissé, Kaboré (J. Ayew 70) - Valbuena (Ben Arfa 56), Niang (cap), A. Ayew (Samassa 56). Entraîneur : Didier Deschamps </p><p><strong>Caen :</strong> Thébaux - Barzola, Sorbon, Heurtaux, Tafforeau - Marcq - Seube (cap), El-Arabi, Nivet, Mollo (Nabab 81) - K. Traoré (Yatabaré 73). Entraîneur : Franck Dumas</p>    </p>
     <div id="article-pub-content"><div id="pub_pave_article" class="pub"></div></div>
   </div><footer class="rs_skip article__footer">
       <div id="divVideoStepAdBottom" class="divVideoStep"></div>
@@ -864,20 +867,41 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
                     <li>
               <a href="/normandie/bayeux-14400/" rel="tag">Bayeux</a>
             </li>
+                        <li>
+              <a href="/normandie/caen-14000/" rel="tag">Caen</a>
+            </li>
+                        <li>
+              <a href="/normandie/deauville-14800/" rel="tag">Deauville</a>
+            </li>
+                        <li>
+              <a href="/normandie/falaise-14700/" rel="tag">Falaise</a>
+            </li>
+                        <li>
+              <a href="/normandie/lisieux-14100/" rel="tag">Lisieux</a>
+            </li>
+                        <li>
+              <a href="/normandie/vire-normandie-14500/" rel="tag">Vire Normandie</a>
+            </li>
+                        <li>
+              <a href="/sport/football/sm-caen/" rel="tag">SM Caen</a>
+            </li>
+                        <li>
+              <a href="/sport/football/olympique-de-marseille/" rel="tag">Olympique de Marseille</a>
+            </li>
                   </ul>
     </div>
   </footer>
   <aside class="rs_skip article-footer__bottom">
           <div id="bloc_outbrain_main">
         <div id="bloc_outbrain_top">
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-widget-id="AR_5" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-widget-id="AR_5" data-ob-template="OuestFrance" ></div>
         </div>
         <div id="bloc_outbrain_left">
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-widget-id="AR_6" data-ob-template="OuestFrance" ></div>
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-widget-id="AR_7" data-ob-template="OuestFrance" ></div>
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-widget-id="AR_8" data-ob-template="OuestFrance" ></div>
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-widget-id="AR_9" data-ob-template="OuestFrance" ></div>
-          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-widget-id="AR_10" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-widget-id="AR_6" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-widget-id="AR_7" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-widget-id="AR_8" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-widget-id="AR_9" data-ob-template="OuestFrance" ></div>
+          <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-widget-id="AR_10" data-ob-template="OuestFrance" ></div>
           <script type='text/javascript'>
   ;(function(refusedOnce){
   ;(function(){
@@ -907,7 +931,7 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
       };
   })();
 })(false);
-  </script>        </div><div id="bloc_outbrain_right"><div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-widget-id="AR_11" data-ob-template="OuestFrance" ></div></div></div>
+  </script>        </div><div id="bloc_outbrain_right"><div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-widget-id="AR_11" data-ob-template="OuestFrance" ></div></div></div>
           <div id="ultimedia_wrapper"></div>
 
 
@@ -981,11 +1005,11 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
   </aside>
   
 </article>
-<input type="hidden" id="nid" value="3621001" />
-<input type="hidden" id="titre" value="Lutte ouvrière en centre-ville" />
-  <input type="hidden" id="datePublication" value="1439417185" />
-  <input type="hidden" id="dateMAJ" value="1439604001" />
-    <input type="hidden" id="auteurs" value="Éloi BESSON." />
+<input type="hidden" id="nid" value="526186" />
+<input type="hidden" id="titre" value="Ligue 1. Caen fait sensation devant un Marseille inoffensif " />
+  <input type="hidden" id="datePublication" value="1281217172" />
+  <input type="hidden" id="dateMAJ" value="1380275221" />
+    <input type="hidden" id="auteurs" value="" />
     <div id="pub_banniere_medium" class="pub"></div>  </div>
 
 
@@ -1000,43 +1024,43 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
   <div class="inside list">
     <ul>
               <li>
-          <time datetime="2016-05-21T19:25:06Z">
-            21/05          </time>
+          <time datetime="2016-05-24T19:19:08Z">
+            24/05          </time>
           <div class="title">
-            <a href='/normandie/caen-14000/carburants-la-situation-se-tend-dans-le-calvados-4242483'>
-              Carburants : la situation se tend dans le Calvados            </a>
+            <a href='/normandie/bayeux-14400/avec-bayeux-animations-loisirs-faites-le-plein-dactivites-4248427'>
+              Avec Bayeux animations loisirs, faites le plein d'activités            </a>
           </div>
         </li>
               <li>
-          <time datetime="2016-05-21T17:33:28Z">
-            21/05          </time>
+          <time datetime="2016-05-24T13:02:33Z">
+            24/05          </time>
           <div class="title">
-            <a href='/normandie/bayeux-14400/carburants-bayeux-le-rationnement-mis-en-place-4242427'>
-              Carburants à Bayeux : le rationnement mis en place            </a>
+            <a href='/normandie/bayeux-14400/penurie-de-carburant-deux-stations-actuellement-fermees-bayeux-4248130'>
+              Pénurie de carburant. Deux stations actuellement fermées à Bayeux            </a>
           </div>
         </li>
               <li>
-          <time datetime="2016-05-20T18:29:29Z">
-            20/05          </time>
+          <time datetime="2016-05-24T11:56:00Z">
+            24/05          </time>
           <div class="title">
-            <a href='/normandie/bayeux-14400/affaire-baupain-isabelle-attard-ete-entendue-par-les-enqueteurs-4239857'>
-              Affaire Baupin. Isabelle Attard a été entendue par les enquêteurs            </a>
+            <a href='/normandie/caen-14000/primaires-droite-cope-et-lefebvre-en-deplacement-dans-le-calvados-4248107'>
+              Primaires à droite. Copé et Lefebvre en déplacement dans le Calvados            </a>
           </div>
         </li>
               <li>
-          <time datetime="2016-05-20T18:03:26Z">
-            20/05          </time>
+          <time datetime="2016-05-23T17:12:16Z">
+            23/05          </time>
           <div class="title">
-            <a href='/normandie/bayeux-14400/bayeux-pres-de-200-lyceens-ont-couru-contre-la-faim-video-4240017'>
-              A Bayeux, près de 200 lycéens ont couru contre la faim [Vidéo]            </a>
+            <a href='/normandie/bayeux-14400/departementales-trevieres-philippe-chapron-fn-sera-le-3e-homme-4247224'>
+              Départementales à Trévières. Philippe Chapron (FN) sera le 3e homme            </a>
           </div>
         </li>
               <li>
-          <time datetime="2016-05-20T10:29:51Z">
-            20/05          </time>
+          <time datetime="2016-05-23T13:00:07Z">
+            23/05          </time>
           <div class="title">
-            <a href='/normandie/bayeux-14400/carburants-bayeux-la-situation-dans-les-stations-ce-vendredi-4239827'>
-              Carburants à Bayeux : la situation dans les stations ce vendredi            </a>
+            <a href='/normandie/bayeux-14400/ou-trouver-du-carburant-ce-lundi-bayeux-4246999'>
+              Où trouver du carburant ce lundi midi à Bayeux            </a>
           </div>
         </li>
           </ul>
@@ -1080,7 +1104,23 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
                 <ul class="list">
                                             <li   >
 
+                            <a href="/economie/emploi/loi-travail/penurie-le-point-sur-la-distribution-de-carburant-carte-interactive-4244784">Pénurie de carburant. Où faire le plein ? [carte interactive]</a>
+                                                          -
+                              <span class="meta-cat">
+                                                                      <a href="/economie/emploi/loi-travail/">Loi travail</a>
+                                                                </span>
+                                                    </li>
+                                                <li   >
+
                             <a href="/economie/emploi/loi-travail/loi-travail-avec-les-blocages-les-stocks-dessence-en-baisse-4237646">Loi Travail. Blocages : où trouver du carburant ? [carte interactive]</a>
+                                                          -
+                              <span class="meta-cat">
+                                                                      <a href="/economie/emploi/loi-travail/">Loi travail</a>
+                                                                </span>
+                                                    </li>
+                                                <li   >
+
+                            <a href="/economie/emploi/loi-travail/loi-travail-ou-trouver-du-carburant-ce-week-end-carte-interactive-4242322">Pénurie. Où trouver du carburant ce dimanche ? [carte interactive]</a>
                                                           -
                               <span class="meta-cat">
                                                                       <a href="/economie/emploi/loi-travail/">Loi travail</a>
@@ -1094,28 +1134,12 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
                                                                       <a href="/economie/emploi/loi-travail/">Loi travail</a>
                                                                 </span>
                                                     </li>
-                                                <li   >
-
-                            <a href="/monde/egypte/direct-vol-egyptair-disparu-15-francais-bord-4237605">Vol EgyptAir : la Grèce dément la découverte de l'épave</a>
-                                                          -
-                              <span class="meta-cat">
-                                                                      <a href="/monde/egypte/">Egypte</a>
-                                                                </span>
-                                                    </li>
-                                                <li   >
-
-                            <a href="/bretagne/rennes-35000/rennes-tentative-de-sabotage-du-metro-ce-matin-19-arrestations-4237625">Rennes. Tentative de sabotage du métro ce matin: 19 arrestations</a>
-                                                          -
-                              <span class="meta-cat">
-                                                                      <a href="/bretagne/rennes-35000/">Rennes</a>
-                                                                </span>
-                                                    </li>
                                                 <li class="last"  >
 
-                            <a href="/economie/emploi/loi-travail/loi-travail-ou-trouver-du-carburant-ce-week-end-carte-interactive-4242322">Pénurie. Où trouver du carburant ce week-end ? [carte interactive]</a>
+                            <a href="/economie/transports/penurie-de-carburant/penurie-de-carburant-ou-faire-le-plein-ce-mardi-carte-interactive-4248163">Pénurie de carburant. Où faire le plein ? [carte interactive]</a>
                                                           -
                               <span class="meta-cat">
-                                                                      <a href="/economie/emploi/loi-travail/">Loi travail</a>
+                                                                      <a href="/economie/transports/penurie-de-carburant/">Pénurie de carburant</a>
                                                                 </span>
                                                     </li>
                                         </ul>
@@ -1124,17 +1148,24 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
             <div id="articles-plus-commentes" class="tab-pane fade">
                 <ul class="list">
                                             <li   >
-                            <a href="/economie/emploi/loi-travail/direct-loi-travail-blocages-caen-saint-nazaire-rennes-le-mans-lorient-4233064">Direct. Loi Travail. Paris, Nantes, Rennes : retour au calme</a>
+                            <a href="/economie/emploi/loi-travail/ah-la-france-debrouillarde-qui-se-rue-sur-les-pompes-4244600">Ah ! La France débrouillarde... qui se rue sur les pompes</a>
                                                           <span class="meta-cat">
                                   
                                     Loi travail
                                                                 </span>
                                                     </li>
                                                 <li   >
-                            <a href="/societe/faits-divers/violences-rennes/video-nathalie-appere-plus-question-que-rennes-subisse-ces-violences-4232408">VIDEO. Nathalie Appéré: "Plus question que Rennes subisse ces violences"</a>
+                            <a href="/economie/emploi/loi-travail/loi-travail-ou-trouver-du-carburant-ce-week-end-carte-interactive-4242322">Pénurie. Où trouver du carburant ce dimanche ? [carte interactive]</a>
                                                           <span class="meta-cat">
                                   
-                                    Violences à Rennes
+                                    Loi travail
+                                                                </span>
+                                                    </li>
+                                                <li   >
+                            <a href="/politique/francois-hollande/raffineries-bloquees-hollande-denonce-la-strategie-dune-minorite-4248111">Raffineries bloquées. Hollande dénonce la "stratégie d'une minorité"</a>
+                                                          <span class="meta-cat">
+                                  
+                                    François Hollande
                                                                 </span>
                                                     </li>
                                                 <li   >
@@ -1144,18 +1175,11 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
                                     Loi travail
                                                                 </span>
                                                     </li>
-                                                <li   >
+                                                <li class="last"  >
                             <a href="/economie/emploi/loi-travail/loi-travail-ou-trouver-du-carburant-ce-vendredi-carte-interactive-4239798">Loi Travail. Où trouver du carburant ? [carte interactive]</a>
                                                           <span class="meta-cat">
                                   
                                     Loi travail
-                                                                </span>
-                                                    </li>
-                                                <li class="last"  >
-                            <a href="/monde/migrants/les-refugies-rapportent-plus-que-ce-quils-coutent-4237787">Les réfugiés rapportent plus que ce qu’ils coûtent</a>
-                                                          <span class="meta-cat">
-                                  
-                                    Migrants 
                                                                 </span>
                                                     </li>
                                         </ul>
@@ -1220,13 +1244,13 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
             <ul>
                                   <li class="item">
                                             <div class="rub"><span>Nationaux</span></div>
-                      <a href="/bons-plans/nationaux/shopping-beaute-bien-etre?insee=14118&origine=zz&55_source=Ouest-France&amp;55_action=sousdomaine_ofdeals&amp;55_emplacement=fluxdealsnationaux" target="_blank">
-                          <p class="title cut">Râpe électrique anti-callosités AEG et, en option, 2 rouleaux supplémentaires, dès 14,90 euros (79 % de réduction)</p>
+                      <a href="/bons-plans/nationaux/cuisine?insee=14118&origine=zz&55_source=Ouest-France&amp;55_action=sousdomaine_ofdeals&amp;55_emplacement=fluxdealsnationaux" target="_blank">
+                          <p class="title cut">Jambon Serrano ou Pata Negra de 4, 5 ou 6 kg, avec support, couteaux et charcuterie en option, dès 39 euros, FRAIS DE PORT INCLUS (jusqu'à 66 % de réduction)</p>
                                                                               <div class="photo">
-                              <img  width="310" height="190" alt="" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/imagecache/external/0813ffb80080f602eba5e99cf04b5a97.jpg?itok=2wiDNX8h" />                          </div>
+                                                        </div>
                           <div class="price">
-                              <div class="price-item price-remise">-79%</div>
-                              <div class="price-item price-start">14,90€ <span>69,90€</span></div>
+                              <div class="price-item price-remise">-66%</div>
+                              <div class="price-item price-start">39€ <span>115€</span></div>
                           </div>
 
                       </a>
@@ -1234,12 +1258,12 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
                                     <li class="item">
                                             <div class="rub"><span>Caen</span></div>
                       <a href="/bons-plans/caen/beaute-bien-etre?insee=14118&origine=ca&55_source=Ouest-France&amp;55_action=sousdomaine_ofdeals&amp;55_emplacement=fluxdealslocaux" target="_blank">
-                          <p class="title cut">Soin éclat du visage, au choix 35 min ou 1 H dès 22,90 euros (60 % de réduction)</p>
+                          <p class="title cut">Shampooing, coupe et brushing à 19 euros avec HAIR FACTORY (50 % de réduction)</p>
                                                                               <div class="photo">
-                              <img  width="310" height="190" alt="" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/imagecache/external/c34402641824c9bf195561ccf222bbf0.jpg?itok=ZnSwQwcG" />                          </div>
+                              <img  width="310" height="190" alt="" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/imagecache/external/b457c01760a632b6e4647f381e6cc3d4.jpg?itok=mvK1yQAa" />                          </div>
                           <div class="price">
-                              <div class="price-item price-remise">-65%</div>
-                              <div class="price-item price-start">22,90€ <span>65€</span></div>
+                              <div class="price-item price-remise">-50%</div>
+                              <div class="price-item price-start">19€ <span>38€</span></div>
                           </div>
 
                       </a>
@@ -1248,209 +1272,9 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
         </div>
     </div>
 </section>    <section>
-      <style>
-@charset "UTF-8";
-#OFI_Widget_Ann {
-    font-size: 12px;
-    color: #333333;
-    line-height : 15px;
-    font-family: arial,verdana,sans-serif;
-    z-index: 1000;
-    position: relative;
-}
-#OFI_logo_Ann {
-    border-left: 1px solid #D4D4D4;
-    border-right: 1px solid #D4D4D4;
-    border-top: 3px solid red;
-    width: 155px;
-    height: 29px;
-}
-#OFI_logo_Ann a{
-	display: block;
-	width: 155px;
-    height: 29px;
-	background: url(https://www.ouestfrance-immo.com/img/service/logo_ofi_widget.gif) no-repeat 13px 7px;
-}
-#OFI_content_Ann {
-    border: 1px solid #D4D4D4;
-    position: relative;
-    width:100%;
-    padding: 10px;
-}
-#OFI_content_Ann a.blocAnnOFI {
-    display: block;
-    overflow: hidden;
-    text-decoration: none;
-    border-bottom: 1px solid #D4D4D4;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-}
-#OFI_content_Ann a.blocAnnOFI:first-child {
-    border-top: none;
-    padding-top: 0;
-}
-#OFI_content_Ann a.blocAnnOFI .blocPhotoOFI {
-    position: relative;
-    float: left;
-    width: 90px;
-    height: 60px;
-    overflow: hidden;
-    margin-right: 10px;
-}
-#OFI_content_Ann a.blocAnnOFI .blocPhotoOFI span {
-    display: block;
-    font-size: 11px;
-    background-color: #000;
-    color: #fff;
-    opacity: 0.7;
-    padding: 3px 8px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-}
-#OFI_content_Ann a.blocAnnOFI strong {
-    display: block;
-    color: #000;
-    margin-top: 10px;
-}
-#OFI_content_Ann a.blocAnnOFI span {
-    display: block;
-    color: #000;
-}
-#OFI_content_Ann a.blocAnnOFI em {
-    display: block;
-    font-style: normal;
-    color: #FF0000;
-    font-weight: bold;
-}
-#OFI_plus_Ann {
-    bottom: 10px;
-    display: inline-block;
-    width: 100%;
-    color: red;
-    text-decoration: underline;
-    font-size: 11px;
-    line-height: 120%;
-    text-align: right;
-}
-/*Style mobile*/
-#OFI_Widget_Ann.mobile{
-	width: 300px;
-	margin: 5px 15px 5px 0px
-}
-#OFI_Widget_Ann.mobile #OFI_logo_Ann{
-    border: none !important;
-    height: 20px !important;
-
-}
-#OFI_Widget_Ann.mobile #OFI_logo_Ann a{
-	text-transform: uppercase;
-    text-decoration: none;
-    color: #878787;
-    font-weight: bold;
-    font-size: 13px;
-    background: none !important;
-    height: 20px !important;
-}
-#OFI_Widget_Ann.mobile #OFI_content_Ann{
-	border: none;
-	padding: 0;
-}
-
-#OFI_Widget_Ann.mobile a.blocAnnOFI{
-    float: left !important;
-    border: none;
-    margin-bottom : 5px;
-    padding-bottom: 0;
-    margin-right: 0;
-}
-#OFI_Widget_Ann.mobile a.blocAnnOFI:first-child {
-    margin-right: 30px;
-}
-#OFI_Widget_Ann.mobile #OFI_content_Ann .blocPhotoOFI{
-    float: none !important;
-    width: 130px !important;
-    height: 86px !important;
-    margin-right: 0 ;
-}
-#OFI_Widget_Ann.mobile #OFI_content_Ann .blocPhotoOFI span{
-    color: #fff !important;
-}
-#OFI_Widget_Ann.mobile #OFI_content_Ann a.blocAnnOFI strong{
-	color: #333;
-    font-size: 14px;
-    font-weight: bold;
-    max-width: 130px;
-    margin-top: 5px !important;
-}
-#OFI_Widget_Ann.mobile #OFI_content_Ann a.blocAnnOFI span{
-	color: #333;
-    font-size: 12px;
-    max-width: 130px;
-}
-#OFI_Widget_Ann.mobile #OFI_plus_Ann{
-	text-align: left;
-	text-decoration: none;
-	color: #e2001a;
-    display: block;
-    font-size: 12px;
-    line-height: 120%;
-    font-weight: bold !important;
-    text-align: left;
-    clear: both;
-}
-
-</style>
-
-<!--[if (lt IE 9)]>
-<style>
-#OFI_content_Ann a.blocAnnOFI {
-    height: 70px;
-}
-#OFI_plus_Ann {
-    position: static;
-}
-</style>
-<![endif]-->
-
-
-<div id="OFI_Widget_Ann" >
-
-	<div id="OFI_logo_Ann"><a href="https://www.ouestfrance-immo.com?utm_source=ouest-france.fr&utm_medium=widgetl&utm_campaign=autopromo" target="_blank"></a></div>
-
-	<div id="OFI_content_Ann">
-
-		    	        <a href="https://www.ouestfrance-immo.com/immobilier/vente/maison/bayeux-14-14047/9867935.htm?utm_source=ouest-france.fr&utm_medium=widgetl&utm_campaign=autopromo" title="" class="blocAnnOFI" target="_blank">
-	            <div class="blocPhotoOFI">
-	                <img src="https://www.ouestfrance-immo.com/photo-vente-maison-bayeux-14/207/maison-a-vendre-bayeux-9867935_1_918B68196F6B7C3D939947F9C60CF905B9DDA0FB_px_90_.jpg"
-	                	width="90"
-	                	 border="0" alt="" />
-	                <span>8 photos</span>
-	            </div>
-	            <strong>
-	            Vente maison	            </strong>
-	            <span>Bayeux 14</span>
-	            <em>234 000&nbsp;€</em>	        </a>
-	    	        <a href="https://www.ouestfrance-immo.com/immobilier/vente/maison/bayeux-14-14047/9869085.htm?utm_source=ouest-france.fr&utm_medium=widgetl&utm_campaign=autopromo" title="" class="blocAnnOFI" target="_blank">
-	            <div class="blocPhotoOFI">
-	                <img src="https://www.ouestfrance-immo.com/photo-vente-maison-bayeux-14/207/maison-a-vendre-bayeux-9869085_1_EBF347378175DA9D561537814F34977F438E5DF6_px_90_.jpg"
-	                	width="90"
-	                	 border="0" alt="" />
-	                <span>8 photos</span>
-	            </div>
-	            <strong>
-	            Vente maison	            </strong>
-	            <span>Bayeux 14</span>
-	            <em>477 000&nbsp;€</em>	        </a>
-	    	
-	<a href="https://www.ouestfrance-immo.com?utm_source=ouest-france.fr&utm_medium=widgetl&utm_campaign=autopromo" id="OFI_plus_Ann" target="_blank">
-			Retrouvez toutes nos offres immobili&egrave;res
-		</a>
-
-	</div>
-</div>  </section>
-  <div id="pub_pave3" class="pub"></div>  <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/lutte-ouvriere-en-centre-ville-3621001" data-widget-id="SB_2" data-ob-template="OuestFrance" ></div><script type='text/javascript'>
+      <iframe class="auto" src="http://www.ouestfrance-auto.com/tools/widget/?nomargin=1&ville=&cp=" style="height: 250px; width: 310px;" frameBorder="0" scrolling="no"></iframe>
+  </section>
+    <div id="pub_pave3" class="pub"></div>  <div class="OUTBRAIN" data-src="http://www.ouest-france.fr/normandie/bayeux-14400/ligue-1-caen-fait-sensation-devant-un-marseille-inoffensif-526186" data-widget-id="SB_2" data-ob-template="OuestFrance" ></div><script type='text/javascript'>
   ;(function(refusedOnce){
   ;(function(){
       var self = arguments.callee;
@@ -1491,26 +1315,26 @@ Les militants Lutte ouvrière ont interpellé les passants dans le centre-ville.
   <div class="row grid_2-3_1-3">
     <div>
       <article class="block-same-subject__focus add-icon">
-        <a href="/normandie/bayeux-14400/bayeux-rend-hommage-salome-girard-5-ans-apres-lattentat-video-4238047">
-          <figure class="photo"><img itemprop="image"  width="640" height="360" alt="Une foule d&#039;anonymes est venue rendre hommage à salomé Girard, cinq ans après sa dispartiion." src="http://www.ouest-france.fr/sites/default/files/styles/image-640x360/public/2016/05/19/bayeux-rend-hommage-salome-girard-5-ans-apres-lattentat-video.jpg?itok=7Hb3I60y"/>
+        <a href="/normandie/calvados/carburant-caen-les-stations-service-tardent-etre-livrees-4247030">
+          <figure class="photo"><img itemprop="image"  width="640" height="360" alt="Les automobilistes se ruent sur les pompes à la station-service du magasin Cora." src="http://www.ouest-france.fr/sites/default/files/styles/image-640x360/public/2016/05/23/carburant-caen-les-stations-service-tardent-etre-livrees.jpg?itok=swBgq45z"/>
 <figcaption>
-Une foule d'anonymes est venue rendre hommage à salomé Girard, cinq ans après sa dispartiion.&nbsp;|&nbsp;Ouest-France</figcaption>
-</figure>          <p class="block-same-subject__focus-title">Bayeux rend hommage à Salomé Girard, 5 ans après l'attentat [Vidéo]</p>
+Les automobilistes se ruent sur les pompes à la station-service du magasin Cora.&nbsp;|&nbsp;Ouest-France</figcaption>
+</figure>          <p class="block-same-subject__focus-title">Carburant. A Caen, les stations-service tardent à être livrées</p>
         </a>
-        <p class="block-same-subject__focus-description">Le 28 avril 2011, Salomé Girard trouvait la mort, victime d’un attentat à Marrakech. Jeudi soir, 300 personnes assistaient à l'inauguration du jardin qui porte son nom.</p>
+        <p class="block-same-subject__focus-description">A Caen et dans ses environs, l'essence se fait toujours rares à certains endroits ce lundi 23 mai 2016. A Cora, en bordure de RN 13, c'est la ruée des automobilistes.</p>
       </article>
     </div>
     <div>
               <article class="block-same-subject__article">
-          <p class="block-same-subject__article-title"><a href="/normandie/calvados/caen-collision-sur-le-peripherique-plus-de-6-km-de-bouchons-4239800">Caen. Collision sur le périphérique : plus de 6 km de bouchons</a></p>
-          <p class="block-same-subject__article-description">Une collision entre quatre véhicules a fait un blessé léger ce vendredi 20 mai 2016, vers 8 h 15, sur le périph' de Caen. L'accident engendre des difficultés de circulation.</p>
+          <p class="block-same-subject__article-title"><a href="/normandie/bayeux-14400/les-ecoliers-stars-de-la-nuit-des-musees-4248556">Les écoliers, stars de la Nuit des musées</a></p>
+          <p class="block-same-subject__article-description">Samedi soir, des élèves de CM1 et de CM2 de Subles et de Bayeux ont emmené le public en voyage, au temps du peintre Gustave Caillebotte, au Musée d'art et d'histoire Baron-Gérard.</p>
         </article>
               <article class="block-same-subject__article">
-          <p class="block-same-subject__article-title"><a href="/normandie/bayeux-14400/paul-louvet-la-tete-de-lagence-calvados-habitat-4242576">Paul Louvet à la tête de l'agence Calvados habitat</a></p>
+          <p class="block-same-subject__article-title"><a href="/normandie/bayeux-14400/trois-artistes-exposent-la-galerie-medusa-4248552">Trois artistes exposent à la galerie Médusa</a></p>
           <p class="block-same-subject__article-description"></p>
         </article>
               <article class="block-same-subject__article">
-          <p class="block-same-subject__article-title"><a href="/normandie/bayeux-14400/un-forum-sur-la-prevention-sante-au-lycee-4242579">Un forum sur la prévention santé au lycée</a></p>
+          <p class="block-same-subject__article-title"><a href="/normandie/bayeux-14400/les-majorettes-ont-defile-dans-les-rues-hier-4248554">Les majorettes ont défilé dans les rues hier</a></p>
           <p class="block-same-subject__article-description"></p>
         </article>
           </div>
@@ -1520,69 +1344,69 @@ Une foule d'anonymes est venue rendre hommage à salomé Girard, cinq ans après
   <div class="row grid_1-3">
           <div>
                     <article>
-              <a href="/economie/emploi/loi-travail/une-station-sur-cinq-en-rupture-de-carburants-de-louest-4244528">           
+              <a href="/sciences/espagne-decouverte-de-70-peintures-rupestres-datant-de-12-500-ans-4250691">           
                                 <div class="photo  ">
-                  <img  width="310" height="190" alt="Une station essence Intermarché près de Rennes à Chantepie prise d&#039;assaut par les automobilistes samedi matin alors qu&#039;elle vient juste d&#039;être réapprovisionnée en carburant." title="Photo : Marc Ollivier / Ouest-France" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/22/une-station-sur-cinq-en-rupture-de-carburants-de-louest.jpg?itok=oETsIvCY" />                </div>
-                <p>Une station sur cinq en rupture de carburants de l'Ouest</p>
+                  <img  width="310" height="190" alt="Des archéologues ont découvert un important ensemble de peintures rupestres ayant plus de 12.000 ans au Pays basque espagnol (nord)." title="Photo : AFP" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/25/espagne-decouverte-de-70-peintures-rupestres-datant-de-12-500-ans.jpg?itok=34d7JG_S" />                </div>
+                <p>Espagne. Découverte de 70 peintures rupestres datant de 12 500 ans</p>
               </a>
             </article>
             <ul>
                             <li>
                 <p>
-                  <a href="/economie/aeronautique/lavion-solaire-solar-impulse-2-atterri-dans-lohio-4244521">
-                    L'avion solaire Solar Impulse 2 a atterri dans l'Ohio                  </a>
+                  <a href="/sante/des-malades-mentaux-attaches-ou-isoles-un-rapport-pointe-des-abus-4250682">
+                    Malades mentaux attachés ou isolés. Un rapport pointe des abus                  </a>
                 </p>
               </li>
                             <li>
                 <p>
-                  <a href="/culture/cinema/festival-cannes/un-film-finlandais-prix-un-certain-regard-cannes-4242526">
-                    Un film finlandais prix Un Certain Regard à Cannes                  </a>
+                  <a href="/monde/afghanistan/qui-est-le-mollah-haibatullah-nouveau-chef-des-talibans-afghans-4250677">
+                    Qui est le mollah Haibatullah, nouveau chef des talibans afghans ?                  </a>
                 </p>
               </li>
                       </ul>
       </div>
             <div>
                     <article>
-              <a href="/economie/aeronautique/egyptair-les-recherches-continuent-ce-dimanche-en-mediterranee-4244525">           
+              <a href="/sciences/animaux/video-ain-l214-denonce-des-maltraitances-dans-un-elevage-de-poules-4250666">           
                                 <div class="photo  ">
-                  <img  width="310" height="190" alt="Les recherches se poursuivent, ce dimanche, pour retrouver l&#039;épave de l&#039;Airbus d&#039;EgyptAir disparu en Méditerranée." title="PHOTO : HELEN RIMMER / BRITISH MINISTRY OF DEFENCE / EPA" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/22/egyptair-les-recherches-continuent-ce-dimanche-en-mediterranee.jpg?itok=NEC9GN1y" />                </div>
-                <p>EgyptAir : les recherches continuent ce dimanche en Méditerranée</p>
+                  <img  width="310" height="190" alt="Un élevage de 200 000 poules au cœur d&#039;une nouvelle affaire alimentaire." title="Photo : AFP" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/25/video-ain-l214-denonce-des-maltraitances-dans-un-elevage-de-poules.jpg?itok=HGnSYSqY" />                </div>
+                <p>VIDEO. Cadavres, poux... Un élevage de 20 000 poules dans la tourmente</p>
               </a>
             </article>
             <ul>
                             <li>
                 <p>
-                  <a href="/monde/afghanistan/le-chef-des-talibans-afghans-probablement-tue-par-un-drone-americain-4242544">
-                    Le chef des talibans afghans probablement tué par un drone américain                  </a>
+                  <a href="/economie/emploi/loi-travail/loi-travail-crispations-des-elus-et-des-syndicats-4250614">
+                    Loi Travail. Crispations des élus et des syndicats                  </a>
                 </p>
               </li>
                             <li>
                 <p>
-                  <a href="/normandie/alencon-61000/conde-sur-sarthe-deux-detenus-se-battent-avec-des-outils-de-jardinage-4242525">
-                    Condé-sur-Sarthe. Deux détenus se battent avec des outils de jardinage                  </a>
+                  <a href="/economie/emploi/loi-travail/direct-loi-travail-et-penurie-les-stocks-strategiques-mis-contribution-4250633">
+                    Direct. Loi Travail et pénurie. La France puise dans ses réserves                  </a>
                 </p>
               </li>
                       </ul>
       </div>
             <div>
                     <article>
-              <a href="/societe/justice/rennes-limprimerie-de-billets-echappe-au-casse-du-siecle-4242455">           
+              <a href="/monde/etats-unis/etats-unis-peine-de-mort-requise-contre-le-tueur-de-charleston-4250674">           
                                 <div class="photo  ">
-                  <img  width="310" height="190" alt="Douze personnes comparaissent à partir de lundi devant le tribunal correctionnel de Grenoble pour un projet très élaboré de braquage contre Oberthur Fiduciaire à Rennes." title="Photo : Philippe Renault / archives Ouest-France" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/21/rennes-limprimerie-de-billets-echappe-au-casse-du-siecle.jpg?itok=YtEBKDIR" />                </div>
-                <p>Rennes. L'imprimerie de billets échappe au casse du siècle</p>
+                  <img  width="310" height="190" alt="La peine de mort sera requise contre le tueur de Charleston" title="Photo : Reuters" src="http://www.ouest-france.fr/sites/default/files/styles/image-310x190/public/2016/05/25/etats-unis-peine-de-mort-requise-contre-le-tueur-de-charleston.jpg?itok=-G1EhAXC" />                </div>
+                <p>Etats-Unis. Peine de mort requise contre le tueur de Charleston</p>
               </a>
             </article>
             <ul>
                             <li>
                 <p>
-                  <a href="/sport/football/coupe-de-france/coupe-de-france-paris-le-regne-absolu-4242534">
-                    Coupe de France. Paris, le règne absolu                  </a>
+                  <a href="/politique/francois-hollande/comment-hollande-peut-il-se-sortir-du-bourbier-4250683">
+                    Comment Hollande peut-il se sortir du bourbier ?                  </a>
                 </p>
               </li>
                             <li>
                 <p>
-                  <a href="/economie/emploi/loi-travail/loi-travail-ou-trouver-du-carburant-ce-week-end-carte-interactive-4242322">
-                    Pénurie. Où trouver du carburant ce week-end ? [carte interactive]                  </a>
+                  <a href="/societe/justice/le-fils-des-balkany-mis-en-examen-pour-fraude-fiscale-4250667">
+                    Le fils du couple Balkany mis en examen pour fraude fiscale                  </a>
                 </p>
               </li>
                       </ul>
@@ -1800,7 +1624,7 @@ Une foule d'anonymes est venue rendre hommage à salomé Girard, cinq ans après
   <div id="hidden-variables">
   <input id="theme_sug" type="hidden" value="page__node" />
   <input id="arg_0" type="hidden" value="node" />
-  <input id="arg_1" type="hidden" value="3621001" />
+  <input id="arg_1" type="hidden" value="526186" />
   <input id="arg_2" type="hidden" value="" />
   <input id="arg_3" type="hidden" value="" />
   <input id="inseeCode" type="hidden" value="14047" />
@@ -1810,7 +1634,7 @@ Une foule d'anonymes est venue rendre hommage à salomé Girard, cinq ans après
   <input id="rubrique" type="hidden" value="Normandie" />
   <input id="sousRub" type="hidden" value="Bayeux" />
   <input id="sousSousRub" type="hidden" value="" />
-  <input id="idNiveau2" type="hidden" value="104" />
+  <input id="idNiveau2" type="hidden" value="1" />
   <input id="logSite" type="hidden" value="http://logc1" />
   <input id="idSite" type="hidden" value="61164" />
   <input id="gtmId" type="hidden" value="GTM-255LW" />
@@ -1843,8 +1667,8 @@ Une foule d'anonymes est venue rendre hommage à salomé Girard, cinq ans après
 
 <script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__SewzmYm7kqZyKkZ9NYvP39MADBSyMzp0WvD--UroNdo__N3HqHR9R-OaBeJPib93Z8ph6uCGu5pp9yzLHlLJWOMs__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
 <script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__imSrcwWhj4DvDKyBQURSz9jb5jP_Nzi3zxrBf2QFeAg__XVUENxbLFcQlQiQwY9ed18S3E7ODJDOxeWtR-TQRDT0__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
-<script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__vZlSTJ9XoyPST4KDRZxFEHnJbx7bxcIlsYuwCkM4eA8__VdDepFZiA7cZES-6tOkdkBVAN8cZ_tPaMvbhoNyTxMg__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
-<script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__hLA04RGyNfm4S27a6_AtUFY8I8Ku_xySBs3s9xa_jWQ__wFsb78s_CQrTE1KGye_KU-bw31Si_g4AIl27nXTmaZE__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
+<script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__ix_pjrASnucdVJOs-46XUL_hff1r5BxThjyBHhdotYI__6n8NTxgfS7tmhinmgfCZPOHFJp7Cmqv_4fSWU4KK-iI__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
+<script type="text/javascript" src="//www.ouest-france.fr/sites/default/files/advagg_js/js__QDcM6GIWqEFz2jdL48YatOp0n3EODkqzskle_X3-DD4__yarYBISFR-aKGF8zNJ1xFPeDaxRfFGgiWvDUyQ_99lc__zSHuxc9CAiGj3Rz5Isd8f0mM6cMgBJ88rOQkMMHwaFE.js"></script>
                   <div id="fullloader">
               <div class="status">&nbsp;</div>
           </div>
@@ -1901,6 +1725,6 @@ Une foule d'anonymes est venue rendre hommage à salomé Girard, cinq ans après
     };
   })();
 
-</script>    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"3511bd0387","applicationID":"2820635","transactionName":"ZlxSYEJSCkdZWkQMCl8WcVdEWgtaF1dfAQBuSVFTVWwSXV1O","queueTime":0,"applicationTime":505,"atts":"ShtRFgpIGUk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</script>    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"3511bd0387","applicationID":"2820635","transactionName":"ZlxSYEJSCkdZWkQMCl8WcVdEWgtaF1dfAQBuSVFTVWwSXV1O","queueTime":0,"applicationTime":568,"atts":"ShtRFgpIGUk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
 
 </html>

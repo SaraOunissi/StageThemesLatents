@@ -1,0 +1,55 @@
+
+Portail captif Communauté Université Grenoble Alpes
+
+
+Bienvenue sur le portail captif de laCommunauté Université Grenoble Alpes !
+
+Avertissement : sécurité de vos données
+Nous vous alertons sur le caractère NON sécurisé des transactions, le contenu de tout échange de données sur le réseau via le portail captif peut être intercepté par un tiers malveillant.
+Veillez à être vigilant(e) sur les informations que vous êtes amené(e) à consulter ou à saisir à travers un quelconque portail captif, surtout pour des informations de type professionnel, personnel, privé ou confidentiel (login, mot de passe, données bancaires...).
+Il est de votre responsabilité de vous assurer que toutes ces données sont sécurisées par le fournisseur du service que vous désirez utiliser, à l'accès comme à la consultation.
+
+Utilisation de vos données personnelles
+Nous vous informons que les traces de vos connexions/déconnexions sont enregistrées, conservées durant 1 an conformément à la législation, et peuvent être remises aux autorités compétentes sur requête de leur part.
+Principaux services disponibles via le portail captif
+
+consultation web (sécurisée ou non)
+connexion au VPN de votre établissement
+messagerie (sécurisée uniquement)
+visio-conférence
+
+
+
+La présente charte vous informe de vos et nos engagements et responsabilités :
+
+Article 1 : Objet de cette charte
+Article 2 : Avertissements relatifs à la sécurité
+Article 3 : Vos engagements et responsabilité
+Article 4 : Engagements et responsabilité de l'UGA
+
+
+Connexion au portail captif
+Vous reconnaissez avoir pris connaissance et accepté la charte ci-dessus d'utilisation du portail captif.
+Les champs de saisie de l'identifiant et du mot de passe ci-dessous sont sécurisés.
+
+
+
+
+
+
+Vous êtes :
+ Personnel ou étudiant(e)
+ Visiteur
+Identifiant :
+Mot de passe :
+
+
+
+N'oubliez pas :
+
+de vous déconnecter pour terminer votre session en utilisant l'adresse logout.grenet.fr,
+d'éteindre votre connexion wifi (par mesure de sécurité, pour libérer les ressources réseau et préserver votre batterie).
+
+
+
+out

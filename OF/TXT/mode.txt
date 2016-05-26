@@ -1,0 +1,178 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Nous utilisons des cookies pour vous donner la meilleure expérience sur notre site. 
+  Les cookies sont des fichiers stockés dans votre navigateur et sont utilisés par la 
+  plupart des sites Web pour aider à personnaliser votre expérience Web. En continuant 
+  à utiliser notre site Web sans modifier les paramètres, vous acceptez notre 
+  utilisation des cookies.
+  Fermer
+Plus d'informations
+
+
+
+jactiv.ouest-france.fr
+
+Accueil
+Actualités
+Campus
+Ils s'activent
+Job Formation
+Vie pratique
+Sortir
+Dossiers
+Faites l'info
+Jouez/Gagnez
+ 
+
+Mon compte 
+
+
+Se connecter 
+
+
+
+
+
+
+Le bonheur veut tout le monde heureux
+(Victor Hugo)
+
+22
+
+May
+
+
+ 
+
+
+
+
+
+
+Suivre @jactiv
+!function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+            }
+          }(document, "script", "twitter-wjs");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AccueilActualitésNos dernières actusActualitésDiaporamaInsolite-VidéosZoom surVos contributionsEt aussiCampusNos dernières actusCampusAlençonCaenLavalLorientNantesRennesVannesDossiersLogement étudiantPartir à l'étrangerRentrée universitaireSanté des étudiantsConcours EvénementsLa régate des IUT Jactiv.ouest-france.frTrophées campusEt aussiIls s'activentNos dernières actusConcoursDossiersSolidarité - BénévolatIls s'activentCarnet de bord - ParcoursInitiativeSportConseils pratiquesComment faire pour passer une formation en secourisme ?Créer une associationDonner son sang pour la première foisJe veux créer une web radio associativeJ'ai envie d'aider les autresLe Service volontaire européen, comment ça marche ?Partir comme bénévole sur un chantierPartir en mission humanitaireService civique : mode d'emploiEt aussiJob FormationNos dernières actusS'orienter, découvrir un métierFiches métiers - vidéosDossiers métiersMétier de l'informatiqueMétier de la filière boisMétier du bâtimentMétier du paysageMétiers de l'environnementMétiers de la banque-assuranceMétiers de la santéMétiers des services à la personneMétiers du webConseils pratiquesComment se réorienter en cours d'annéeDes clés pour bien choisir sa voieJ'ai quitté l'école mais je veux rebondirTrouver le métier qui me convientTchatsAdmission post-bacIUTOrientationSe formerLes filièresEcoles de commerceEcoles d’ingénieursEtudes courtes : BTS ou DUT ?Etudier à l’étrangerUniversitésLes écoles se présententConseils pratiquesComment étudier ou travailler quand on souffre d’un léger handicap ?Conseils d’étudiants pour bien travailler à la facDiplôme. Tout savoir sur le bachelorLe diplôme universitaire est toujours gratifiantLes prépas, ça donne le temps de murir son projetL’alternance, une valeur sûre pour l’insertionNos 7 conseils pour bien préparer ses examensPartir en Erasmus ne s’improvise pasLes formations des écolesDossiers Se former Examens, Bac : conseils pratiquesTravailler - StageDossiersJobs d'étéStageTravaillerEntreprendreConseils pratiques6 conseils pour vous aider dans votre recherche d’emploi8 conseils pour décrocher un stageComment réussir sa lettre de motivation ?Des clés pour réussir son job-datingDevenir un jeune auto-entrepreneurEntretien, 10 conseils pour convaincreJeune sans emploi, quels sont mes droitsJeunes travailleurs handicapés, quels droits ?Mon premier contrat de travailPartir comme Volontaire International en EntrepriseConseils pratiques : orientation, formation, stage, emploiEt aussiVie pratiqueNos dernières actusVie pratiqueDroit - ArgentForme - SantéLogementModeSavoir vivre - CuisineTransport - VoyageDossiersLogement étudiantMode, cuisine, voyages, ... notre sélection de blogueursSanté des étudiantsConseils pratiques10 conseils pour acheter sa voiture d'occasion10 conseils pour bien gérer sa réputation sur internet10 idées pour relooker son appart10 conseils pour réussir son cvEt aussiSortirNos dernières actusAgendaDossiersGuide des festivalsSortirCinémaMusiqueCoups de cœurs10 idées de lieux où pique-niquer dans l'Ouest10 jeux faciles à organiser entre amis12 plus belles plages de l’OuestFestivals, le kit parfait du petit festivalierEt aussiDossiersNos derniers dossiersDossiers Job Formation Fiches métiers Se formerStageTravailler Conseils pratiques : orientation, formation, stage, emploi Examens, Bac : conseils pratiquesDossiers spéciauxBénévolat – SolidaritéCampusCarnets de bordsEtudier à l’étrangerForme – Santé LogementSortirConseils pratiquesJouez/GagnezNos dernières actusJouez - GagnezNos gagnantsConcours photosInitiatives solidairesLes EntrepreneurialesQui veut partir à San Fransisco ?Trophées campusDossiersGuide des festivalsEt aussi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      var path = "vie-pratique";
+    jQuery(document).ready(function () {
+        if (path.length)
+            jQuery('#header-menu li').find('a[href$="' + path + '"]').parent().addClass("active");
+    });
+  
+Retour à la section 
+
+
+
+Mode 2015. Quels styles de baskets porter cet été ?
+
+
+Publié le mercredi 29 avril 2015 à 16:36.
+Vie pratique / Mode
+                   /  
+
+
+
+
+
+
+
+Agrandir la police
+Diminuer la police
+
+
+
+
+
+
+
+
+ 
+Les baskets blanches sont les incontournables de cet été 2015.                         © Asos
+
+
+
+
+On en voit partout ! Blanches, noires, multicolores, les baskets s’invitent  
+à toutes les tenues, de la plus chic à la sportive. Cette mode commençait  
+à se montrer l’été dernier. Elle se confirme cette année avec de  
+nouveaux styles. Zoom sur les tendances 2015.
+
+
+La basket blanche, l’incontournable
+
+Vous avez dû le remarquer, la basket blanche est à tous les pieds. Elle se porte aussi bien par les femmes que par les hommes, avec à peu près tout. On la préfère avec un total look noir plutôt chic pour un côté contrasté. Du côté des modèles, la Stan Smith et la Superstar, des chaussures made in Adidas, arrivent en tête du classement. Mais si vous ne voulez pas faire comme tout le monde, beaucoup de marques ont sorti des dérivés de ces baskets.
+(En photo : Superstar Adidas, 149€99, Asos / Stan Smith Adidas, 89€99, Asos)
+De l’imprimé en basket pour accessoiriser sa tenue
+
+Désormais, les tennis sont considérées comme de véritables accessoires de mode. N'hésitez donc pas à jouer avec le style de vos baskets pour apporter un plus à une tenue classique. Et pour ne pas surcharger son look, on évite de surcharger notre apparence et on choisit des vêtements unis avec ce genre de chaussure.
+(En photo : Miss KG Loretta, 79€99, Asos / Nike Roshe Run Flyknit , 143€99, Asos)
+La basket flashy, pour plus de peps
+
+Cet été, on veut de la couleur à nos pieds ! Mais pour éviter de tomber dans le color-block (look arc-en-ciel), on associe ce style de basket avec une tenue plus terne.
+(En photo : Puma SMU Trinomic XT1, 81€99, Asos / Baskets fluo River Island, 38€99, Asos)
+La basket à plateforme
+
+L'été dernier, seulement quelques-unes s'étaient laissé séduire par ces chaussures à la semelle imposante. En 2015, ces baskets, qui arrivent tout droit des années 90, se démocratisent. À associer à un slim retroussé ou une salopette, tendance de cet été, ce modèle apporte une note rétro. Quel style choisir ? Celui que l'on préfère. Unie ou à imprimés, en toile ou en cuir, elle s’adapte selon vos goûts. Mais on préfèrera tout de mêmes celles avec la semelle blanche.
+(En photo : Sneaker Ricci 3, 45 €, André / Sneaker Rita 2, 45 €, André)
+La basket façon slipper
+
+Sans lacet, cette basket est la version sportive des slippers. À associer avec tous les styles, elle se porte en couleur, unie ou à imprimés. Et pourquoi ne pas les choisir dorées pour les femmes  ? Ce coloris est très à la mode cet été. Et en plus, c'est original.
+(En photo : Ted Baker, 129€99, Asos / Jack & Jones, 38€99, Asos)
+Clémentine MERCIER.
+out
